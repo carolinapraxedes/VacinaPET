@@ -40,13 +40,12 @@ O ambiente dos usuários do sistema de cadastro de vacinação de pets é compos
 Os usuários precisam superar as limitações dos métodos manuais, como fichas em papel e planilhas eletrônicas, que dificultam o acesso, centralização e atualização dos dados de vacinação. Ao migrar para um sistema digital, será possível obter acesso rápido e eficiente aos dados e históricos de vacinação, facilitando a consulta, organização e atualização das informações. Isso trará maior eficiência ao processo, evitando erros e possibilitando recursos como lembretes automáticos de vacinação.
 
 
-
-
 6. **Alternativas concorrentes:**
 
 Uma alternativa disponível é o aplicativo para celular Carteira Pet, que permite o registro de vacinas, além de oferecer recursos adicionais, como o cadastro de consultas, exames e receitas. No entanto, o RN+PET é uma opção mais adequada para a exclusividade de informações de vacinas em animais.
 
 7. **Visão geral do produto:**
+
 O sistema tem como objetivo facilitar e centralizar as informações sobre a vacinação de animais. Ele oferece uma maneira eficiente de registrar, acompanhar e gerenciar o histórico de vacinação dos animais de forma organizada e acessível. Ao simplificar o processo de controle de vacinas, o produto busca garantir que as partes interessadas tenham uma visão clara e atualizada das vacinações, contribuindo para a saúde e bem-estar dos animais de estimação.
 
 8. **Casos de uso**
@@ -70,20 +69,37 @@ O sistema tem como objetivo facilitar e centralizar as informações sobre a vac
 
 |**Código**|**Nome**|**Descrição**|
 | :- | :- | :- |
-|*F01*|*Efetuar login usuário*|*O usuário tem acesso ao jogo e ao sistema.*|
-|*F02*|*Consultar ranking*|*Exibir a pontuação dos jogadores*|
-|*F03*|*Calcular score*|*Realizar o cálculo de score dos jogadores*|
-|*..*|*..*|*..*|
+
+|F01|Efetuar login usuário|O usuário tem acesso ao sistema|
+|F02|Solicitar um RGA|O tutor pet solicita um RGA com os dados do animal de estimação|
+|F03|Cadastrar um RGA|O funcionário do governo preenche o formulário de RGA com os dados repassados na solicitação|
+|F04|Busca por RGA|Buscar um pet por meio do seu RGA|
+|F05|Agendar uma vacinação|Tutor pet preenche um formulário para agendar uma vacinação|
+|F06|Alterar agendamento da vacinação|Tutor pet pode alterar alguma informação da vacinação marcada|
+|F07|Desmarcar uma vacinação|Tutor pode cancelar a vacinação marcada|
+|F08|Listagem de vacinação marcada|Informação sobre a vacinação marcada|
+|F09|Registrar uma vacinação|Veterinário ou agente de saúde preenche um formulário para registrar uma vacinação|
+|F10|Listagem de vacinação marcada|Informação sobre a vacinação marcada|
+|F11|Listagem de vacinação realizadas|Lista todas as vacinas aplicadas no animal|
+|F12|Listagem de dados gerais sobre a vacinação|Listagem de todos os dados gerais sobre a realização de vacinação no estado|
+
 
 
 10. **Requisitos NÃO-FUNCIONAIS** 
 
 |**Código**|**Nome**|**Descrição**|**Categoria**|**Classificação**<br>|
 | :- | :- | :- | :-: | :-: |
-|*NF01*|*Controle de acesso Usuário*|*Só usuários autenticados podem ter acesso ao sistema.*|*Segurança*|*obrigatório*|
-|*NF02*|*Tempo de resposta*|*A comunicação entre o servidor e o cliente não pode ultrapassar o tempo limite para a jogada*|*Performance*|*Desejável*|
-|*NF02*|*..*|*..*|*..*|*..*|
-|*..*|*..*|*..*|*..*|*..*|
+|NF01|Controle de acesso Usuário|Segurança|Obrigatório|
+|NF02|Usabilidade|Sistema fácil de utilizar|Usabilidade|Desejável|
+|NF03|Design Responsivo|Sistema web se adapta a diferente tamanho de telas|Usabilidade|Obrigatório|
+
 
 11. **Glossário** 
+
+**RGA:** Registro Geral Animal. Seria o RG do animal criado pelo o governo como um identificador único.
+
+**Veterinário:** Profissional da saúde animal responsável pela aplicação da vacinação.
+
+**Agente de saúde:** Funcionário do governo do estado que tem autorização para registrar a vacinação.
+
 
