@@ -69,7 +69,6 @@ O sistema tem como objetivo facilitar e centralizar as informações sobre a vac
 
 |**Código**|**Nome**|**Descrição**|
 | :-: | :-: | :-: |
-
 |F01|Efetuar login usuário|O usuário tem acesso ao sistema|
 |F02|Solicitar um RGA|O tutor pet solicita um RGA com os dados do animal de estimação|
 |F03|Cadastrar um RGA|O funcionário do governo preenche o formulário de RGA com os dados repassados na solicitação|
@@ -82,6 +81,7 @@ O sistema tem como objetivo facilitar e centralizar as informações sobre a vac
 |F10|Listagem de vacinação marcada|Informação sobre a vacinação marcada|
 |F11|Listagem de vacinação realizadas|Lista todas as vacinas aplicadas no animal|
 |F12|Listagem de dados gerais sobre a vacinação|Listagem de todos os dados gerais sobre a realização de vacinação no estado|
+
 
 
 
