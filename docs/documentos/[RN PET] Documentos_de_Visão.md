@@ -68,7 +68,7 @@ O sistema tem como objetivo facilitar e centralizar as informações sobre a vac
 9. **Requisitos FUNCIONAIS**    
 
 |**Código**|**Nome**|**Descrição**|
-| :- | :- | :- |
+| :- | :- | :-: |
 
 |F01|Efetuar login usuário|O usuário tem acesso ao sistema|
 |F02|Solicitar um RGA|O tutor pet solicita um RGA com os dados do animal de estimação|
