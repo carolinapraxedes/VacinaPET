@@ -48,50 +48,53 @@ Uma alternativa disponível é o aplicativo para celular Carteira Pet, que permi
 
 O sistema tem como objetivo facilitar e centralizar as informações sobre a vacinação de animais. Ele oferece uma maneira eficiente de registrar, acompanhar e gerenciar o histórico de vacinação dos animais de forma organizada e acessível. Ao simplificar o processo de controle de vacinas, o produto busca garantir que as partes interessadas tenham uma visão clara e atualizada das vacinações, contribuindo para a saúde e bem-estar dos animais de estimação.
 
-8. **Casos de uso**
 
-|**Código**|**Caso de uso**|**Prioridade Alta**|**Prioridade média**|**Prioridade baixa**|**Status**|
-| :-: | :-: | :-: | :-: | :-: | :-: |
-|CP01|Solicitar RGA|**X**|||Não feito|
-|CP02|Registrar RGA|**X**|||Não feito|
-|CP03|Consultar RGA|**X**|||Não feito|
-|CP04|Solicitar Vacinação|**X**|||Não feito|
-|CP05|Registrar Vacinação|**X**|||Não feito|
-|CP06|Visualizar processo de solicitação do RGA||**X**||Não feito|
-|CP07|Selecionar um pet||**X**||Não feito|
-|CP08|Visualizar informações sobre o PET||**X**||Não feito|
-|CP09|Consultar histórico de vacinação do PET|||**X**|Não feito|
-|CP10|Consultar dados gerais sobre a vacinaçao do estado|||**X**|Não feito|
-|CP11|Visualizar informações sobre a vacinação agendada|||**X**|Não feito|
-
-
-9. **Requisitos FUNCIONAIS**    
+8. **Requisitos FUNCIONAIS**    
 
 |**Código**|**Nome**|**Descrição**|
 | :-: | :-: | :-: |
 |F01|Efetuar login usuário|O usuário tem acesso ao sistema|
-|F02|Solicitar um RGA|O tutor pet solicita um RGA com os dados do animal de estimação|
-|F03|Cadastrar um RGA|O funcionário do governo preenche o formulário de RGA com os dados repassados na solicitação|
+|F02|Solicitação de RGA|O tutor pet solicita um RGA com os dados do animal de estimação|
+|F03|Cadastramento de RGA|O funcionário do governo preenche o formulário de RGA com os dados repassados na solicitação|
 |F04|Busca por RGA|Buscar um pet por meio do seu RGA|
-|F05|Agendar uma vacinação|Tutor pet preenche um formulário para agendar uma vacinação|
-|F06|Alterar agendamento da vacinação|Tutor pet pode alterar alguma informação da vacinação marcada|
-|F07|Desmarcar uma vacinação|Tutor pode cancelar a vacinação marcada|
+|F05|Agendamento de vacinação|Tutor pet preenche um formulário para agendar uma vacinação|
+|F06|Alteração de agendamento da vacinação|Tutor pet pode alterar alguma informação da vacinação marcada|
+|F07|Desmarcação de vacinação|Tutor pode cancelar a vacinação marcada|
 |F08|Listagem de vacinação marcada|Informação sobre a vacinação marcada|
-|F09|Registrar uma vacinação|Veterinário ou agente de saúde preenche um formulário para registrar uma vacinação|
-|F10|Listagem de vacinação marcada|Informação sobre a vacinação marcada|
-|F11|Listagem de vacinação realizadas|Lista todas as vacinas aplicadas no animal|
+|F09|Cadastramento de vacinação|Veterinário ou agente de saúde preenche um formulário para registrar uma vacinação|
+|F10|Comprovante de vacinação|Documento de comprovação da vacina aplicada|
+|F11|Listagem de vacinação realizadas|Lista de todas as vacinas aplicadas no animal|
 |F12|Listagem de dados gerais sobre a vacinação|Listagem de todos os dados gerais sobre a realização de vacinação no estado|
+|F13|Lembrete de vacina marcada|Quando a vacinação marca estiver próxima de acontecer, o tutor irá receber um e-mail de lembrete|
+|F14|Cadastro de campanha de vacinação|Funcionário do governo preenche formulário para criação de uma nova campanha de vacinação|
+|F15|Notificação de campanha de vacinação|Todos os tutores de pet cadastrados no sistema irá receber um e-mail informativo sobre a nova campanha de vacinação|
 
 
 
 
-10. **Requisitos NÃO-FUNCIONAIS** 
+9. **Requisitos NÃO-FUNCIONAIS** 
 
 |**Código**|**Nome**|**Descrição**|**Categoria**|**Classificação**<br>|
 | :- | :- | :- | :-: | :-: |
 |NF01|Controle de acesso Usuário|Só usuários autenticados podem ter acesso ao sistema|Segurança|Obrigatório|
 |NF02|Usabilidade|Sistema fácil de utilizar|Usabilidade|Desejável|
 |NF03|Design Responsivo|Sistema web se adapta a diferente tamanho de telas|Usabilidade|Obrigatório|
+
+10. **Casos de uso**
+
+|**Código**|**Caso de uso**|**Prioridade Alta**|**Prioridade média**|**Prioridade baixa**|**Status**|
+| :-: | :-: | :-: | :-: | :-: | :-: |
+|CP01|Registrar vacina|**X**|||Não feito|
+|CP02|Solicitar vacina|**X**|||Não feito|
+|CP03|Visualizar informações sobre a vacinação agendada|**X**|||Não feito|
+|CP04|Solicitar RGA|**X**|||Não feito|
+|CP05|Registrar RGA|**X**|||Não feito|
+|CP06|Selecionar um PET||**X**||Não feito|
+|CP07|Visualizar informações sobre o PET||**X**||Não feito|
+|CP08|Consultar histórico de vacinação do PET||**X**||Não feito|
+|CP09|Consultar RGA|||**X**|Não feito|
+|CP10|Visualizar processo de solicitação do RGA|||**X**|Não feito|
+|CP11|Consultar dados gerais sobre a vacinação do estado|||**X**|Não feito|
 
 
 11. **Glossário** 
