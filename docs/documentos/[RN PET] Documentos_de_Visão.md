@@ -11,6 +11,7 @@
 |29/05/2023|1\.3|Visão geral do produto|Carolina Praxedes|
 |31/05/2023|1\.4|Elaboração dos casos de uso|Carolina Praxedes|
 |01/06/2023|1\.5|Elaboração dos requisitos funcionais, não funcionais e glossário |Carolina Praxedes|
+|06/06/2023|1\.6|Adição de novas funcionalidades e revisão da ordem de prioridade dos CDUS |Carolina Praxedes|
 
 1. **Projeto**: RN+PET* 
 2. **Descrição do problema:**
