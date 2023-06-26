@@ -28,14 +28,14 @@
 3. O ator preenche as informação sobre o animal: nome do animal de estimação, espécie(cão,gato,etc), raça, RGA e data de nascimento  ou idade aproximada.
 4. O ator preenche as informação sobre o tutor do PET: nome do proprietário ou ONG responsável, número de contato e email.
 5. O ator preenche as informação sobre a vacinação: nome da vacina administrada, data de vacinação, lote da vacina, nome do fabricante da  vacina, dose (primeira dose, segunda dose, etc) e identificação do ator que aplicou a vacinação.
-4. O sistema verifica se todos os dados foram preenchidos de forma correta. 
-5. O sistema cadastra a vacinação e disponibiliza um comprovante de vacinação. 
+6. O sistema verifica se todos os dados foram preenchidos de forma correta. 
+7. O sistema cadastra a vacinação e disponibiliza um comprovante de vacinação. 
 
 
 **5.2- Fluxo Alternativo – Dados inválidos ou incompletos para cadastro de vacinação:** 
 
 1. O sistema informará ao ator que o dado em questão foi preenchido de forma incorreta e pede que ele preencha novamente.  
 2. O ator preenche de forma correta e solicita novamente a validação do sistema. 
-3. O  sistema  valida  novamente  os  dados  e  finaliza  o  cadastro  do pedido de frete. 
+3. O  sistema  valida  novamente  os  dados  e  finaliza  o  cadastro  da vacinação
 
 
