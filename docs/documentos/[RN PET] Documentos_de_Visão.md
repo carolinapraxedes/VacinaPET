@@ -38,23 +38,23 @@ O ambiente dos usuários do sistema de cadastro de vacinação de pets é compos
 
 5. **Principais necessidades dos usuários:**
 
-Os usuários precisam superar as limitações dos métodos manuais, como fichas em papel e planilhas eletrônicas, que dificultam o acesso, centralização e atualização dos dados de vacinação. Ao migrar para um sistema digital, será possível obter acesso rápido e eficiente aos dados e históricos de vacinação, facilitando a consulta, organização e atualização das informações. Isso trará maior eficiência ao processo, evitando erros e possibilitando recursos como lembretes automáticos de vacinação.
+Os usuários precisam superar as limitações das formas convencionais, como fichas em papel e planilhas eletrônicas, que dificultam o acesso, centralização e atualização dos dados de vacinação. Ao implementar uma plataforma informatizada, será possível obter acesso rápido e eficiente aos dados e históricos de vacinação, facilitando a consulta, organização e atualização das informações. Isso trará maior eficiência ao processo, evitando erros e possibilitando recursos como lembretes automáticos de vacinação.
 
 
 6. **Alternativas concorrentes:**
 
-Uma alternativa disponível é o aplicativo para celular Carteira Pet, que permite o registro de vacinas, além de oferecer recursos adicionais, como o cadastro de consultas, exames e receitas. No entanto, o RN+PET é uma opção mais adequada para a exclusividade de informações de vacinas em animais.
+Uma alternativa disponível é o aplicativo para celular Carteira Pet, que permite o registro de vacinas, além de oferecer recursos adicionais, como o cadastro de consultas, exames e receitas. No entanto, o RN+PET é uma opção direcionada e especializada  em informações de vacinas em animais.
 
 7. **Visão geral do produto:**
 
-O sistema tem como objetivo facilitar e centralizar as informações sobre a vacinação de animais. Ele oferece uma maneira eficiente de registrar, acompanhar e gerenciar o histórico de vacinação dos animais de forma organizada e acessível. Ao simplificar o processo de controle de vacinas, o produto busca garantir que as partes interessadas tenham uma visão clara e atualizada das vacinações, contribuindo para a saúde e bem-estar dos animais de estimação.
+O sistema tem como objetivo facilitar e centralizar as informações sobre a vacinação de animais. Ele oferece uma maneira de registrar, acompanhar e gerenciar o histórico de vacinação dos animais de forma organizada e acessível. Ao simplificar o processo de controle de vacinas, o produto busca garantir que as partes interessadas tenham uma visão clara e atualizada das vacinações, contribuindo para a saúde e bem-estar dos animais de estimação. Para melhorar a gestão e organização das informações, o sistema implementa o Registro Geral de Animal (RGA), que permite o cadastramento de um registro único para cada animal de estimação. Essa funcionalidade centraliza e simplifica o acesso aos dados do animal, facilitando a consulta e o acompanhamento de todas as informações relevantes em um único lugar.
 
 
 8. **Requisitos FUNCIONAIS**    
 
 |**Código**|**Nome**|**Descrição**|
 | :-: | :-: | :-: |
-|F01|Efetuar login usuário|O usuário tem acesso ao sistema|
+|F01|Realização de login usuário|O usuário tem acesso ao sistema|
 |F02|Solicitação de RGA|O tutor pet solicita um RGA com os dados do animal de estimação|
 |F03|Cadastramento de RGA|O funcionário do governo preenche o formulário de RGA com os dados repassados na solicitação|
 |F04|Busca por RGA|Buscar um pet por meio do seu RGA|
@@ -100,7 +100,7 @@ O sistema tem como objetivo facilitar e centralizar as informações sobre a vac
 
 11. **Glossário** 
 
-**RGA:** Registro Geral Animal. Seria o RG do animal criado pelo o governo como um identificador único.
+**RGA:** Registro Geral Animal. É o RG do animal criado pelo o governo como um identificador único.
 
 **Veterinário:** Profissional da saúde animal responsável pela aplicação da vacinação.
 
