@@ -18,15 +18,14 @@
 ## 4. Pós-condições:
 
 - Comprovante de vacinação
-- 
 
 ## 5. Fluxos de eventos: 
 **5.1. Fluxo Principal:** 
 
-1. O  profissional de saúde  seleciona  a  opção  cadastrar  vacinação  no  seu Dashboard. 
+1. O  profissional de saúde  seleciona  a  opção  cadastrar  vacinação. 
 2. O sistema solicita os dados da vacinação. 
 3. O ator preenche as informação sobre o animal(nome do animal de estimação, espécie(cão,gato,etc), raça, RGA e data de nascimento  ou idade aproximada), o tutor do PET (nome do proprietário ou ONG responsável, número de contato e email) e vacinação (nome da vacina administrada, data de vacinação, lote da vacina, nome do fabricante da  vacina, dose (primeira dose, segunda dose, etc) e identificação do ator que aplicou a vacinação).
-5. O sistema verifica se os dados foram preenchidos de forma correta, cadastra a vacinação.
+4. O sistema verifica se os dados foram preenchidos de forma correta, cadastra a vacinação.
 
 **5.2- Fluxo Alternativo – Dados inválidos ou incompletos para cadastro de vacinação:** 
 
