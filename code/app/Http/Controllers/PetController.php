@@ -23,7 +23,7 @@ class PetController extends Controller
      */
     public function create()
     {
-        return view('pages.pet.create');
+        return view('pages.tables');
     
     }
 
