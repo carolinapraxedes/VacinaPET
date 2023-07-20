@@ -15,14 +15,14 @@
 
 ## 4. Pós-condições:
 
-- 
-- 
+- Vacinação marcada
+
 
 ## 5. Fluxos de eventos: 
 **5.1. Fluxo Principal:** 
 
-1. O  ator  seleciona  a  opção  solicitar  vacinação  no  seu Dashboard. 
-2. O sistema solicita os dados da vacinação. 
+1. O  ator  seleciona  a  opção  solicitar  vacinação. 
+2. O sistema solicita os dados do agendamento. 
 3. O ator preenche as informação sobre o agendamento: data, horário, localização de onde será realizado.
 4. O sistema verifica se todos os dados foram preenchidos de forma correta. 
 5. O sistema cadastra o agendamento da vacinação e enviará um email de confirmação.
