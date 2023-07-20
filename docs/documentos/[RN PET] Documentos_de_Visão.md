@@ -86,7 +86,7 @@ O sistema tem como objetivo facilitar e centralizar as informações sobre a vac
 
 |**Código**|**Caso de uso**|**Prioridade Alta**|**Prioridade média**|**Prioridade baixa**|**Status**|
 | :-: | :-: | :-: | :-: | :-: | :-: |
-|CP01|[Registrar vacina](https://github.com/tads-cnat/RN-Pet/blob/main/docs/CDU/CDU%2001%20-%20RegistrarVacina.md)|**X**|||Não feito|
+|CP01|[Registrar vacina](https://github.com/tads-cnat/VacinaPET/blob/main/docs/CDU/CDU%2001%20-%20RegistrarVacina.md)|**X**|||Não feito|
 |CP02|[Solicitar vacina](https://github.com/tads-cnat/RN-Pet/blob/main/docs/CDU/CDU%2002%20-%20SolicitarVacina.md)|**X**|||Não feito|
 |CP03|Registrar PET|**X**|||Não feito|
 |CP04|Visualizar informações sobre a vacinação agendada|**X**|||Não feito|
