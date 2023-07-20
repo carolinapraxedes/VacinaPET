@@ -15,7 +15,7 @@ class PageController extends Controller
     public function index(string $page)
     {
         if (view()->exists("pages.{$page}")) {
-            dd($page);
+            
             return view("pages.{$page}");
         }
 
