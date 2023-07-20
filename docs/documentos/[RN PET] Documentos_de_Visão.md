@@ -12,8 +12,9 @@
 |31/05/2023|1\.4|Elaboração dos casos de uso|Carolina Praxedes|
 |01/06/2023|1\.5|Elaboração dos requisitos funcionais, não funcionais e glossário |Carolina Praxedes|
 |06/06/2023|1\.6|Adição de novas funcionalidades e revisão da ordem de prioridade dos CDUS |Carolina Praxedes|
+|20/07/2023|1\.6|Adição de novos CDUS e revisão da ordem de prioridade dos CDUS |Carolina Praxedes|
 
-1. **Projeto**: RN+PET* 
+1. **Projeto**: VacinaPET* 
 2. **Descrição do problema:**
 
 
@@ -87,15 +88,16 @@ O sistema tem como objetivo facilitar e centralizar as informações sobre a vac
 | :-: | :-: | :-: | :-: | :-: | :-: |
 |CP01|[Registrar vacina](https://github.com/tads-cnat/RN-Pet/blob/main/docs/CDU/CDU%2001%20-%20RegistrarVacina.md)|**X**|||Não feito|
 |CP02|[Solicitar vacina](https://github.com/tads-cnat/RN-Pet/blob/main/docs/CDU/CDU%2002%20-%20SolicitarVacina.md)|**X**|||Não feito|
-|CP03|Visualizar informações sobre a vacinação agendada|**X**|||Não feito|
-|CP04|Solicitar RGA|**X**|||Não feito|
-|CP05|Registrar RGA|**X**|||Não feito|
-|CP06|Selecionar um PET||**X**||Não feito|
-|CP07|Visualizar informações sobre o PET||**X**||Não feito|
-|CP08|Consultar histórico de vacinação do PET||**X**||Não feito|
-|CP09|Consultar RGA|||**X**|Não feito|
-|CP10|Visualizar processo de solicitação do RGA|||**X**|Não feito|
-|CP11|Consultar dados gerais sobre a vacinação do estado|||**X**|Não feito|
+|CP03|Registrar PET|**X**|||Não feito|
+|CP04|Visualizar informações sobre a vacinação agendada|**X**|||Não feito|
+|CP05|Solicitar RGA|**X**|||Não feito|
+|CP06|Registrar RGA|**X**|||Não feito|
+|CP07|Selecionar um PET||**X**||Não feito|
+|CP08|Visualizar informações sobre o PET||**X**||Não feito|
+|CP09|Consultar histórico de vacinação do PET||**X**||Não feito|
+|CP10|Consultar RGA|||**X**|Não feito|
+|CP11|Visualizar processo de solicitação do RGA|||**X**|Não feito|
+|CP12|Consultar dados gerais sobre a vacinação do estado|||**X**|Não feito|
 
 
 11. **Glossário** 
