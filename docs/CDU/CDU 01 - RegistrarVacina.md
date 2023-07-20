@@ -27,10 +27,11 @@
 2. O sistema solicita o RGA do animal que será vacinado.
 3. Encontrado o RGA, o sistema retorná os dados.
 4. O sistema mostrará o resultado do animal encontrado com um botão que direcionar ao formulário de registro de vacinação do PET.
-5. No formulário de registro, será recuperados no banco os dados sobre o PET, Tutor e Vacina.
+5. No formulário de registro, será recuperados no banco os dados sobre o PET, Tutor, Veterinário e Vacina.
 6. O ator preencherá os campos vazios sobre vacinação: data de aplicação, lote da vacina, dose.
 7. O ator selecionará a vacina utilizada e o sistema carregará as informações sobre ela. Como nome, quantidade da dose, fabricante e intervalo entre doses.
-8. O sistema verifica se os dados foram preenchidos de forma correta, e cadastra a vacinação.
+8. O ator selecionará o veterinário que aplicou a vacina e o sistema carregará as informações sobre ele. Como nome, CRMV-RN e email.
+9. O sistema verifica se os dados foram preenchidos de forma correta, e cadastra a vacinação.
 
 
 **5.2- Fluxo Alternativo – Animal não encontrado:** 
