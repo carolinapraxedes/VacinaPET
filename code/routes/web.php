@@ -13,6 +13,8 @@ use App\Http\Controllers\ResetPassword;
 use App\Http\Controllers\ChangePassword;            
 
 use App\Http\Controllers\PetController;
+use App\Http\Controllers\VacinacaoController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -53,7 +55,13 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 		Route::delete('/pets/{pet}', [PetController::class, 'destroy'])->name('pets.destroy');
 
 		//Rotas vacinação
-
+		Route::get('/vacinacao/index', [VacinacaoController::class, 'index'])->name('vacinacao.index');		
+		Route::get('/vacinacao/create', [VacinacaoController::class, 'create'])->name('vacinacao.create');		
+		Route::post('/vacinacao/store', [VacinacaoController::class, 'store'])->name('vacinacao.store');		
+		Route::get('/vacinacao/{vacinacao}', [VacinacaoController::class, 'show'])->name('vacinacao.show');		
+		Route::get('/vacinacao/{vacinacao}/edit', [VacinacaoController::class, 'edit'])->name('vacinacao.edit');		
+		Route::put('/vacinacao/{vacinacao}', [VacinacaoController::class, 'update'])->name('vacinacao.update');		
+		Route::delete('/vacinacao/{vacinacao}', [VacinacaoController::class, 'destroy'])->name('vacinacao.destroy');
 
 		//Rotas agendamento de vacinação
 

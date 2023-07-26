@@ -15,12 +15,29 @@ return new class extends Migration
     {
         Schema::create('pet', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name',140);
             $table->string('gender');
             $table->string('age');
             $table->string('color');        
-            $table->text('description');       
+            $table->string('RGA')->nullable();
+            $table->text('description')->nullable();       
             $table->date('dateBirth')->nullable();
+
+            $table->unsignedInteger('vaccination_id');
+            $table->unsignedInteger('appointment_id');
+            $table->unsignedInteger('breed_id');
+            $table->unsignedInteger('specie_id');
+            $table->unsignedInteger('tutor_id');
+
+
+            $table->foreign('vaccination_id')->references('id')->on('vaccination');
+            $table->foreign('appointment_id')->references('id')->on('appointment');
+            $table->foreign('breed_id')->references('id')->on('breed');
+            $table->foreign('specie_id')->references('id')->on('specie');
+            $table->foreign('tutor_id')->references('id')->on('tutor');
+
+
+
             $table->softDeletes();
             $table->timestamps();
         });
