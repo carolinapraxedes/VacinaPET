@@ -13,7 +13,7 @@ class PetController extends Controller
      */
     public function index()
     {
-        return view('pages.user-profile');
+        return view('pages.pet.index');
     }
 
     /**
@@ -23,7 +23,7 @@ class PetController extends Controller
      */
     public function create()
     {
-        return view('pages.tables');
+        return view('pages.pet.create');
     
     }
 

@@ -18,9 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('CRMV_RN');
-            $table->unsignedInteger('vaccination_id');
 
-            $table->foreign('vaccination_id')->references('id')->on('vaccination');
 
             $table->softDeletes();
             $table->timestamps();
@@ -34,6 +32,9 @@ return new class extends Migration
      */
     public function down()
     {
+    
+    
+        // Remover a tabela veterinarian
         Schema::dropIfExists('veterinarian');
     }
 };

@@ -18,11 +18,7 @@ return new class extends Migration
             $table->date('administrationDate');
             $table->string('lote');
             $table->integer('dose');
-            $table->unsignedBigInteger('vaccine_id');
-            $table->unsignedBigInteger('veterinarian_id');
 
-            $table->foreign('vaccine_id')->references('id')->on('vaccine');
-            $table->foreign('veterinarian_id')->references('id')->on('veterinarian');
 
 
             $table->softDeletes();

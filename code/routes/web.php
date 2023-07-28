@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppointmentController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,7 +14,7 @@ use App\Http\Controllers\ResetPassword;
 use App\Http\Controllers\ChangePassword;            
 
 use App\Http\Controllers\PetController;
-use App\Http\Controllers\VacinacaoController;
+use App\Http\Controllers\VaccinationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,16 +56,22 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 		Route::delete('/pets/{pet}', [PetController::class, 'destroy'])->name('pets.destroy');
 
 		//Rotas vacinação
-		Route::get('/vacinacao/index', [VacinacaoController::class, 'index'])->name('vacinacao.index');		
-		Route::get('/vacinacao/create', [VacinacaoController::class, 'create'])->name('vacinacao.create');		
-		Route::post('/vacinacao/store', [VacinacaoController::class, 'store'])->name('vacinacao.store');		
-		Route::get('/vacinacao/{vacinacao}', [VacinacaoController::class, 'show'])->name('vacinacao.show');		
-		Route::get('/vacinacao/{vacinacao}/edit', [VacinacaoController::class, 'edit'])->name('vacinacao.edit');		
-		Route::put('/vacinacao/{vacinacao}', [VacinacaoController::class, 'update'])->name('vacinacao.update');		
-		Route::delete('/vacinacao/{vacinacao}', [VacinacaoController::class, 'destroy'])->name('vacinacao.destroy');
+		Route::get('/vaccination/index', [VaccinationController::class, 'index'])->name('vaccination.index');		
+		Route::get('/vaccination/create', [VaccinationController::class, 'create'])->name('vaccination.create');		
+		Route::post('/vaccination/store', [VaccinationController::class, 'store'])->name('vaccination.store');		
+		Route::get('/vaccination/{vaccination}', [VaccinationController::class, 'show'])->name('vaccination.show');		
+		Route::get('/vaccination/{vaccination}/edit', [VaccinationController::class, 'edit'])->name('vaccination.edit');		
+		Route::put('/vaccination/{vaccination}', [VaccinationController::class, 'update'])->name('vaccination.update');		
+		Route::delete('/vaccination/{vaccination}', [VaccinationController::class, 'destroy'])->name('vaccination.destroy');
 
 		//Rotas agendamento de vacinação
-
+		Route::get('/appointment/index', [AppointmentController::class, 'index'])->name('appointment.index');		
+		Route::get('/appointment/create', [AppointmentController::class, 'create'])->name('appointment.create');		
+		Route::post('/appointment/store', [AppointmentController::class, 'store'])->name('appointment.store');		
+		Route::get('/appointment/{appointment}', [AppointmentController::class, 'show'])->name('appointment.show');		
+		Route::get('/appointment/{appointment}/edit', [AppointmentController::class, 'edit'])->name('appointment.edit');		
+		Route::put('/appointment/{appointment}', [AppointmentController::class, 'update'])->name('appointment.update');		
+		Route::delete('/appointment/{appointment}', [AppointmentController::class, 'destroy'])->name('appointment.destroy');
 
 
 
