@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Breed;
 use Illuminate\Http\Request;
+use App\Models\Tutor;
+use App\Models\Pet;
+use App\Models\Specie;
 
 class PetController extends Controller
 {
@@ -23,7 +27,9 @@ class PetController extends Controller
      */
     public function create()
     {
-        return view('pages.pet.create');
+        $breeds= Breed::all();
+        $species= Specie::all();
+        return view('pages.pet.create',compact('breeds','species'));
     
     }
 
@@ -35,7 +41,35 @@ class PetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $petData = [
+            'name' => $request->input('namePet'),
+            'specie_id' => $request->input('speciePet'),
+            'breed_id' => $request->input('breedPet'),
+            'gender' => $request->input('genderPet'),
+            'RGA' => $request->input('rgaPet'),
+            'color' => $request->input('colorPet'),
+            'age' => $request->input('agePet'),
+            'dateBirth' => $request->input('dateBirthPet'),
+            'description' => $request->input('descriptionPet'),
+        ];
+
+        
+        $pet = Pet::create($petData);
+
+        $tutorData = [
+            'name' => $request->input('nameTutor'),
+            'CPF' => $request->input('cpfTutor'),
+            'email' => $request->input('emailTutor'),
+            'numberPhone' => $request->input('numberPhoneTutor'),
+        ];
+
+         // Crie o tutor
+            $tutor = Tutor::create($tutorData);
+
+            // Associe o pet ao tutor
+            $pet->tutor()->associate($tutor);
+            $pet->save();
+
     }
 
     /**

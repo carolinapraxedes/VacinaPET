@@ -8,12 +8,12 @@
                 <div class="card shadow-lg mx-4 ">
                     <div>
                         <div class="card-body p-3">
-                            <form role="form" method="POST" action={{ route('profile.update') }} enctype="multipart/form-data">
+                            <form role="form" method="POST" action={{ route('pets.store') }} enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-header pb-0">
                                     <div class="d-flex align-items-center">
                                         <p class="mb-0">Cadastrar um novo PET</p>
-                                        <button type="submit" class="btn btn-primary btn-sm ms-auto">Save</button>
+                                        
                                     </div>
                                 </div>
                                 <div class="card-body">
@@ -22,55 +22,41 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Nome</label>
-                                                <input class="form-control" type="text" name="username" value="{{ old('username', auth()->user()->username) }}">
+                                                <input class="form-control" type="text" name="namePet" value="">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Espécie</label>
-                                                <input class="form-control" type="text" name="firstname"  value="{{ old('firstname', auth()->user()->firstname) }}">
+                                                <select class="form-control" name="speciePet">
+                                                    @foreach ($species as $specie)
+                                                        <option value="{{ $specie->id }}">{{ $specie->specie === 'dog' ? 'Cachorro' : 'Gato'}}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Raça</label>
-                                                <select  class="form-control" name="" id="">
-                                                    <option value="">Macho</option>
-                                                    <option value="">Femea</option>
-                                                </select>                                              
+                                                <select class="form-control" name="breedPet">
+                                                    @foreach ($breeds as $breed)
+                                                        <option value="{{ $breed->id }}">{{ $breed->breed }}</option>
+                                                    @endforeach
+                                                </select>                                        
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Sexo</label>
-                                                <select  class="form-control" name="" id="">
-                                                    <option value="">Macho</option>
-                                                    <option value="">Femea</option>
-                                                </select>                                              
+                                                <input class="form-control" type="text" name="genderPet" value="">                                            
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Registro Geral Animal</label>
-                                                <select  class="form-control" name="" id="">
-                                                    <option value="">Macho</option>
-                                                    <option value="">Femea</option>
-                                                </select>                                              
+                                                <input class="form-control" type="text" name="rgaPet" value="">                                            
                                             </div>
                                         </div>
-                                        
-                                        {{-- <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="example-text-input" class="form-control-label">First name</label>
-                                                <input class="form-control" type="text" name="firstname"  value="{{ old('firstname', auth()->user()->firstname) }}">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="example-text-input" class="form-control-label">Last name</label>
-                                                <input class="form-control" type="text" name="lastname" value="{{ old('lastname', auth()->user()->lastname) }}">
-                                            </div>
-                                        </div> --}}
                                     </div>
                                     <hr class="horizontal dark">
                                     <p class="text-uppercase text-sm">Informações adicionais do PET</p>
@@ -78,38 +64,62 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Cor</label>
-                                                <input class="form-control" type="text" name="address"
-                                                    value="{{ old('address', auth()->user()->address) }}">
+                                                <input class="form-control" type="text" name="colorPet"
+                                                    value="">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Idade</label>
-                                                <input class="form-control" type="text" name="country" value="{{ old('country', auth()->user()->country) }}">
+                                                <input class="form-control" type="text" name="agePet" value="">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Data de Nascimento</label>
-                                                <input class="form-control" type="text" name="city" value="{{ old('city', auth()->user()->city) }}">
+                                                <input class="form-control" type="text" name="dateBirthPet" value="">
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Descrição</label>
-                                                <input class="form-control" type="text" name="postal" value="{{ old('postal', auth()->user()->postal) }}">
+                                                <input class="form-control" type="text" name="descriptionPet" value="">
                                             </div>
                                         </div>
                                     </div>
                                     <hr class="horizontal dark">
                                     <p class="text-uppercase text-sm">Tutor</p>
                                     <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="example-text-input" class="form-control-label">About me</label>
-                                                <input class="form-control" type="text" name="about"
-                                                    value="{{ old('about', auth()->user()->about) }}">
+                                                <label for="example-text-input" class="form-control-label">Nome</label>
+                                                <input class="form-control" type="text" name="nameTutor" value="">
                                             </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="example-text-input" class="form-control-label">CPF</label>
+                                                <input class="form-control" type="text" name="cpfTutor" value="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="example-text-input" class="form-control-label">Email</label>
+                                                <input class="form-control" type="text" name="emailTutor" value="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="example-text-input" class="form-control-label">Telefone</label>
+                                                <input class="form-control" type="text" name="numberPhoneTutor" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr class="horizontal dark">
+                                    <div class="row">
+                                        <div class="d-flex align-items-center">
+                                                                           
+                                            <button type="submit" class="btn btn-primary btn-sm ms-auto">Save</button>
                                         </div>
                                     </div>
                                 </div>
