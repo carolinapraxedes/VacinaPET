@@ -28,7 +28,8 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Espécie</label>
-                                                <select class="form-control" name="speciePet">
+                                                <select class="form-control" name="speciePet" id="speciePet">
+                                                    <option selected disabled>Selecione uma espécie</option>
                                                     @foreach ($species as $specie)
                                                         <option value="{{ $specie->id }}">{{ $specie->specie === 'dog' ? 'Cachorro' : 'Gato'}}</option>
                                                     @endforeach
@@ -38,10 +39,9 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Raça</label>
-                                                <select class="form-control" name="breedPet">
-                                                    @foreach ($breeds as $breed)
-                                                        <option value="{{ $breed->id }}">{{ $breed->breed }}</option>
-                                                    @endforeach
+                                                <select class="form-control" name="breedPet" id="breedPet">
+                                                    <option selected disabled>Selecione uma raça</option>
+
                                                 </select>                                        
                                             </div>
                                         </div>
@@ -132,4 +132,29 @@
         </div>
         @include('layouts.footers.auth.footer')
     </div>
+
+    <script type="text/javascript">
+    
+        $(document).ready(function () {
+            $('#speciePet').on('change', function () {
+                var specie_id = this.value;
+                $('#breedPet').html('');
+                $.ajax({
+                    url: '{{ route('getBreed') }}?specie_id='+specie_id,
+                    type: 'get',
+                    success: function (res) {
+                        
+                        // $('#breedPet').html('<option selected disabled>Selecione uma raça</option>');
+                        $.each(res, function (key, value) {
+                            
+                            $('#breedPet').append('<option value="' + key + '">' + value + '</option>');
+                        });
+    
+                    }
+                });
+            });
+        });
+    
+    </script>
+    
 @endsection

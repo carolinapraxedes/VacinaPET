@@ -22,5 +22,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@argon.com',
             'password' => bcrypt('secret')
         ]);
+
+        $this->call(SpecieSeeder::class);
+        $this->call(BreedSeeder::class);
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Tutor;
 use App\Models\Pet;
 use App\Models\Specie;
+use Illuminate\Support\Facades\DB;
 
 class PetController extends Controller
 {
@@ -27,6 +28,7 @@ class PetController extends Controller
      */
     public function create()
     {
+        
         $breeds= Breed::all();
         $species= Specie::all();
         return view('pages.pet.create',compact('breeds','species'));
@@ -115,5 +117,21 @@ class PetController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getSpecie(){
+        
+        $species= Specie::all();
+
+        return response()->json($species);
+    }
+    public function getBreed(Request $request){
+        
+        $breeds= Breed::where('specie_id', $request->specie_id)->pluck('breed');
+        //dd(response()->json($breeds));
+
+        if(!empty($breeds)){
+            return response()->json($breeds);
+        }
     }
 }

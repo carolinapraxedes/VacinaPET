@@ -55,6 +55,10 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 		Route::put('/pets/{pet}', [PetController::class, 'update'])->name('pets.update');		
 		Route::delete('/pets/{pet}', [PetController::class, 'destroy'])->name('pets.destroy');
 
+		//Rotas especies e raças
+		Route::get('specie',[PetController::class,'getSpecie'])->name('getSpecie');
+		Route::get('breed',[PetController::class,'getBreed'])->name('getBreed');
+
 		//Rotas vacinação
 		Route::get('/vaccination/index', [VaccinationController::class, 'index'])->name('vaccination.index');		
 		Route::get('/vaccination/create', [VaccinationController::class, 'create'])->name('vaccination.create');		
