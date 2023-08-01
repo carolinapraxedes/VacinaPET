@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Tutor;
 use App\Models\Pet;
 use App\Models\Specie;
+use App\Http\Requests\RegisterPetRequest;
 use Illuminate\Support\Facades\DB;
 
 class PetController extends Controller
@@ -41,8 +42,10 @@ class PetController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RegisterPetRequest $request)
     {
+
+        
         $petData = [
             'name' => $request->input('namePet'),
             'specie_id' => $request->input('speciePet'),
@@ -65,12 +68,14 @@ class PetController extends Controller
             'numberPhone' => $request->input('numberPhoneTutor'),
         ];
 
-         // Crie o tutor
+             // Crie o tutor
             $tutor = Tutor::create($tutorData);
 
             // Associe o pet ao tutor
             $pet->tutor()->associate($tutor);
             $pet->save();
+
+           
 
     }
 
