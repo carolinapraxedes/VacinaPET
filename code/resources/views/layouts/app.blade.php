@@ -31,22 +31,25 @@
     @endguest
 
     @auth
-        @if (in_array(request()->route()->getName(), ['sign-in-static', 'sign-up-static', 'login', 'register', 'recover-password', 'rtl', 'virtual-reality']))
+        @if (in_array(request()->route()->getName(), [
+            'pets.index', 'pets.create', 'login', 'register', 'recover-password', 'rtl', 'virtual-reality'
+            ]))
             @yield('content')
         @else
-            @if (!in_array(request()->route()->getName(), ['profile', 'profile-static']))
+            @if (!in_array(request()->route()->getName(), ['vaccination.index']))
                 <div class="min-height-300 bg-info position-absolute w-100"></div>
-            @elseif (in_array(request()->route()->getName(), ['profile-static', 'profile']))
-                <div class="position-absolute w-100 min-height-300 top-0" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/profile-layout-header.jpg'); background-position-y: 50%;">
+            @elseif (in_array(request()->route()->getName(), ['vaccination.index']))
+            <div class="position-absolute w-100 min-height-400 y-100 top-0" style="background-image: url('{{ asset('assets/img/teste.png') }}'); background-position: 30%;;">
+
                     <span class="mask bg-info opacity-6"></span>
                 </div>
+            @endif
+            
             @endif
             @include('layouts.navbars.auth.sidenav') 
                 <main class="main-content border-radius-lg">
                     @yield('content')
                 </main>
-           
-        @endif
     @endauth
 
     <!--   Core JS Files   -->

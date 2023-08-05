@@ -17,14 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('name',140);
             $table->string('gender');
-            $table->string('age');
+            $table->unsignedBigInteger('age');
+            $table->date('dateBirth');
             $table->string('color');        
-            $table->string('RGA')->nullable();
+            $table->string('RGA');
             $table->text('description')->nullable();       
-            $table->date('dateBirth')->nullable();
-
-            
-
 
 
             $table->softDeletes();

@@ -8,6 +8,7 @@ use App\Models\Tutor;
 use App\Models\Pet;
 use App\Models\Specie;
 use App\Http\Requests\RegisterPetRequest;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class PetController extends Controller
@@ -19,7 +20,8 @@ class PetController extends Controller
      */
     public function index()
     {
-        return view('pages.pet.index');
+        $pets = Pet::all();
+        return view('pages.pet.index',compact('pets'));
     }
 
     /**
@@ -44,7 +46,11 @@ class PetController extends Controller
      */
     public function store(RegisterPetRequest $request)
     {
-
+        //Idade em meses
+        $dateOfBirth = $request->input('dateBirthPet');
+        $today = Carbon::now();
+        $birthDate = Carbon::parse($dateOfBirth);
+        $age = $birthDate->diffInMonths($today);
         
         $petData = [
             'name' => $request->input('namePet'),
@@ -53,12 +59,11 @@ class PetController extends Controller
             'gender' => $request->input('genderPet'),
             'RGA' => $request->input('rgaPet'),
             'color' => $request->input('colorPet'),
-            'age' => $request->input('agePet'),
+            'age' => $age,
             'dateBirth' => $request->input('dateBirthPet'),
             'description' => $request->input('descriptionPet'),
         ];
-
-        
+              
         $pet = Pet::create($petData);
 
         $tutorData = [
@@ -68,13 +73,15 @@ class PetController extends Controller
             'numberPhone' => $request->input('numberPhoneTutor'),
         ];
 
-             // Crie o tutor
-            $tutor = Tutor::create($tutorData);
+        // Cria o tutor
+        $tutor = Tutor::create($tutorData);
 
-            // Associe o pet ao tutor
-            $pet->tutor()->associate($tutor);
-            $pet->save();
+        // Associe o pet ao tutor
+        $pet->tutor()->associate($tutor);
+        $pet->save();
 
+
+        return redirect()->route('pets.index');
            
 
     }
@@ -133,7 +140,6 @@ class PetController extends Controller
     public function getBreed(Request $request){
         
         $breeds= Breed::where('specie_id', $request->specie_id)->pluck('breed');
-        //dd(response()->json($breeds));
 
         if(!empty($breeds)){
             return response()->json($breeds);
