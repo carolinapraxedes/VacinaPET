@@ -32,15 +32,14 @@
 
     @auth
         @if (in_array(request()->route()->getName(), [
-            'pets.index', 'pets.create', 'login', 'register', 'recover-password', 'rtl', 'virtual-reality'
+            'sign-in-static', 'sign-up-static', 'login', 'register', 'recover-password', 'rtl', 'virtual-reality'
             ]))
             @yield('content')
         @else
-            @if (!in_array(request()->route()->getName(), ['vaccination.index']))
+            @if (!in_array(request()->route()->getName(), ['profile', 'profile-static','vaccination.index']))
                 <div class="min-height-300 bg-info position-absolute w-100"></div>
-            @elseif (in_array(request()->route()->getName(), ['vaccination.index']))
-            <div class="position-absolute w-100 min-height-400 y-100 top-0" style="background-image: url('{{ asset('assets/img/teste.png') }}'); background-position: 30%;;">
-
+            @elseif (in_array(request()->route()->getName(), ['profile', 'profile-static','vaccination.index']))
+                <div class="position-absolute w-100 min-height-400 y-100 top-0" style="background-image: url('{{ asset('assets/img/teste.png') }}'); background-position: 30%;;">
                     <span class="mask bg-info opacity-6"></span>
                 </div>
             @endif

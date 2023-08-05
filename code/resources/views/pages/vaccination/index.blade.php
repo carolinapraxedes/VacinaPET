@@ -12,14 +12,14 @@
                         </h5>
                         <div class="row">
                             <p>
-                                Informe o RGA do animal que deseja registrar a vacinação
+                                Informe o RGA do animal da vacinação    
                             </p>
                             <div class="col-md-12">
                                 <form role="form" method="POST" action={{ route('pets.store') }} enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">                                   
-                                        <input class="form-control" type="text" name="namePet"  value="{{ old('namePet') }}" >
-                                        @error('namePet') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror                                    
+                                        <input class="form-control" type="text" name="rgaSearch"  value="{{ old('rgaSearch') }}" placeholder="Digite o RGA do animal aqui" >
+                                        @error('rgaSearch') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror                                    
                                     </div>
                                     <div class="d-flex align-items-center">
                                                                                
