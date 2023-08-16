@@ -13,16 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('vaccination', function (Blueprint $table) {
+        Schema::create('vaccination_location', function (Blueprint $table) {
             $table->id();
-            $table->date('administrationDate');
-            $table->string('lote');
-            $table->integer('dose');
-
-
-
-
-            $table->softDeletes();
+            $table->string('name');
+            $table->string('street');
+            $table->string('neighborhood');
+            $table->string('city');
+            $table->string('state');
+            $table->string('phone_number');
+            $table->string('email');
+            
             $table->timestamps();
         });
     }
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vaccination');
+        Schema::dropIfExists('vaccination_location');
     }
 };

@@ -7,27 +7,28 @@
             <div class="col-md-12">
                 <div class="card shadow-lg mx-4 ">
                     <div>
+                        <div class="card-header pb-0">
+                            <div class="d-flex align-items-center">
+                                <p class="mb-0">Cadastrar um novo PET</p>
+                                
+                            </div>
+                        </div>
                         <div class="card-body p-3">
                             <form role="form" method="POST" action={{ route('pets.store') }} enctype="multipart/form-data">
                                 @csrf
-                                <div class="card-header pb-0">
-                                    <div class="d-flex align-items-center">
-                                        <p class="mb-0">Cadastrar um novo PET</p>
-                                        
-                                    </div>
-                                </div>
+                                
                                 <div class="card-body">
                                     <p class="text-uppercase text-sm">Informações Gerais do PET</p>
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Nome</label>
-                                                <input class="form-control" type="text" name="namePet"  value="{{ old('namePet') }}" >
+                                                <input class="form-control" type="text" name="namePet" placeholder="Digite o nome aqui.." value="{{ old('namePet') }}" >
                                                 @error('namePet') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
                                                 
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Espécie</label>
                                                 <select class="form-control" name="speciePet" id="speciePet" >
@@ -48,7 +49,7 @@
                                                 @error('breedPet') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror                                        
                                             </div>
                                         </div>
-                                        <div class="col-md-2">
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Sexo</label>
                                                 <select class="form-control" name="genderPet" id="genderPet" >
@@ -58,10 +59,10 @@
                                                 @error('genderPet') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror                                         
                                             </div>
                                         </div>
-                                        <div class="col-md-2">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Registro Geral Animal (RGA)</label>
-                                                <input class="form-control" type="text" name="rgaPet" value="{{ old('rgaPet') }}">  
+                                                <input class="form-control" type="text" placeholder="Digite o RGA aqui.." name="rgaPet" value="{{ old('rgaPet') }}">  
                                                 @error('rgaPet') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror                                            
                                             </div>
                                         </div>
@@ -69,16 +70,16 @@
                                     <hr class="horizontal dark">
                                     <p class="text-uppercase text-sm">Informações adicionais do PET</p>
                                     <div class="row">
-                                        <div class="col-md-2">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Cor</label>
-                                                <input class="form-control" type="text" name="colorPet"
+                                                <input class="form-control" type="text" placeholder="Descreva a cor aqui.." name="colorPet"
                                                 value="{{ old('colorPet') }}">
                                                     @error('colorPet') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror 
                                             </div>
                                         </div>
 
-                                        <div class="col-md-2">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Data de Nascimento</label>
                                                 <input class="form-control" type="date" name="dateBirthPet" id="dateBirthPet" value="{{ old('dateBirthPet') }}">
@@ -88,7 +89,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Descrição</label>
-                                                <textarea name="descriptionPet" id="descriptionPet" class="form-control" >{{ old('descriptionPet') }}</textarea>
+                                                <textarea name="descriptionPet" id="descriptionPet" placeholder="Descreva aqui mais algum detalhe a mais que ache necessário..." class="form-control" >{{ old('descriptionPet') }}</textarea>
                                                 
                                                 @error('descriptionPet') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror 
                                             </div>
@@ -100,28 +101,28 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Nome</label>
-                                                <input class="form-control" type="text" name="nameTutor" value="{{ old('nameTutor') }}" >
+                                                <input class="form-control" type="text" name="nameTutor" placeholder="Digite aqui o nome completo do tutor..." value="{{ old('nameTutor') }}" >
                                                 @error('nameTutor') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror 
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">CPF</label>
-                                                <input class="form-control" type="text" name="cpfTutor" id="cpfTutor" value="{{ old('cpfTutor') }}" >
+                                                <input class="form-control" type="text" name="cpfTutor" placeholder="000.000.000-00" id="cpfTutor" value="{{ old('cpfTutor') }}" >
                                                 @error('cpfTutor') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror 
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Email</label>
-                                                <input class="form-control" type="email" name="emailTutor" value="{{ old('emailTutor') }}" >
+                                                <input class="form-control" type="email" name="emailTutor" placeholder="teste@email.com" value="{{ old('emailTutor') }}" >
                                                 @error('emailTutor') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror 
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Contado do celular</label>
-                                                <input class="form-control" type="text" name="numberPhoneTutor" id="numberPhoneTutor" value="{{ old('numberPhoneTutor') }}" >
+                                                <input class="form-control" type="text" name="numberPhoneTutor" placeholder="(00) 00000-000" id="numberPhoneTutor" value="{{ old('numberPhoneTutor') }}" >
                                                 @error('numberPhoneTutor') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror 
                                             </div>
                                         </div>
@@ -160,7 +161,7 @@
                     url: '{{ route('getBreed') }}?specie_id='+specie_id,
                     type: 'get',
                     success: function (res) {                        
-                        // $('#breedPet').html('<option selected disabled>Selecione uma raça</option>');
+                         $('#breedPet').html('<option selected disabled>Selecione uma raça</option>');
                         $.each(res, function (key, value) {                           
                             $('#breedPet').append('<option value="' + key + '">' + value + '</option>');
                         });

@@ -25,9 +25,6 @@ class Pet extends Model
         'vaccination_id',
         'appointment_id',
         'tutor_id'
-
-
-
     ];
 
     protected $casts = [

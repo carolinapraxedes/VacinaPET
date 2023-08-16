@@ -13,16 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('vaccination', function (Blueprint $table) {
+        Schema::create('manufacturer', function (Blueprint $table) {
             $table->id();
-            $table->date('administrationDate');
-            $table->string('lote');
-            $table->integer('dose');
-
-
-
-
-            $table->softDeletes();
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -34,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vaccination');
+        Schema::dropIfExists('manufacturer');
     }
 };

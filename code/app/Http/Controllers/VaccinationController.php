@@ -2,7 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Manufacturer;
+use App\Models\Pet;
+use App\Models\Specie;
 use App\Models\Vaccination;
+use App\Models\VaccinationLocation;
+use App\Models\Vaccine;
+use App\Models\Veterinarian;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class VaccinationController extends Controller
@@ -22,9 +29,37 @@ class VaccinationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function searchRGA(){
+        
+    }
+
+    public function getCRMV($id){
+        $veterinarian = Veterinarian::find($id);
+        if ($veterinarian) {
+            return response()->json(['CRMV_RN' => $veterinarian->CRMV_RN]);
+        }
+        return response()->json(['error' => 'Veterinarian not found'], 404);
+    }
+
+    
     public function create()
     {
-        return view('pages.vaccination.create');
+        $species=Specie::all();
+        $vaccines = Vaccine::all();
+
+        $manufacturers = Manufacturer::all();
+        $veterinarians = Veterinarian::all();
+        $locals = VaccinationLocation::all();
+        
+
+        
+        $rga = 66666666;
+        $pet = Pet::where('RGA',$rga)->first();
+        
+        
+
+        return view('pages.vaccination.create',compact('species','pet','vaccines', 'manufacturers', 'veterinarians','locals'));
     }
 
     /**
@@ -35,7 +70,7 @@ class VaccinationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
