@@ -15,11 +15,8 @@ return new class extends Migration
     {
         Schema::create('vaccine', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('dosage');
-            $table->string('manufacturer');
-            $table->string('dosing_interval');
-            
+            $table->string('name'); 
+            $table->string('minAge');          
             
             $table->softDeletes();
             $table->timestamps();

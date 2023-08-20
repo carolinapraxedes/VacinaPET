@@ -9,16 +9,20 @@ class Vaccine extends Model
 {
     use HasFactory;
 
+    protected $table = 'vaccine';
+
     protected $fillable = [
         'name',
-        'dosage',
-        'manufacturer',
-        'dosing_interval',
-        'vaccine_id',
+        'minAge',
+        
     ];
 
     public function vaccination(){
         return $this->hasMany(Vaccination::class,'vaccine_id');
+    }
+    public function manufacturer()
+    {
+        return $this->belongsToMany(Manufacturer::class, 'manufacturer_vaccine');
     }
 
 }

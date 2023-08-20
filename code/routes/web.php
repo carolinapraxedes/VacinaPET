@@ -15,6 +15,8 @@ use App\Http\Controllers\ChangePassword;
 
 use App\Http\Controllers\PetController;
 use App\Http\Controllers\VaccinationController;
+use App\Http\Controllers\VaccineController;
+use App\Http\Controllers\VeterinarianController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,14 +61,26 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 		Route::get('specie',[PetController::class,'getSpecie'])->name('getSpecie');
 		Route::get('breed',[PetController::class,'getBreed'])->name('getBreed');
 
+
 		//Rotas vacinação
-		Route::get('/vaccination/index', [VaccinationController::class, 'index'])->name('vaccination.index');		
+		Route::get('/vaccination/index', [VaccinationController::class, 'index'])->name('vaccination.index');
+		Route::get('/vaccination/search', [VaccinationController::class, 'searchRGA'])->name('vaccination.searchRGA');		
 		Route::get('/vaccination/create', [VaccinationController::class, 'create'])->name('vaccination.create');		
-		Route::post('/vaccination/store', [VaccinationController::class, 'store'])->name('vaccination.store');		
+		Route::post('/vaccination/store', [VaccinationController::class, 'store'])->name('vaccination.store');	
+		Route::get('/get-veterinarian-crmv/{id}',[VaccinationController::class,'getCRMV'])->name('getCRMV');
+		
 		Route::get('/vaccination/{vaccination}', [VaccinationController::class, 'show'])->name('vaccination.show');		
 		Route::get('/vaccination/{vaccination}/edit', [VaccinationController::class, 'edit'])->name('vaccination.edit');		
 		Route::put('/vaccination/{vaccination}', [VaccinationController::class, 'update'])->name('vaccination.update');		
 		Route::delete('/vaccination/{vaccination}', [VaccinationController::class, 'destroy'])->name('vaccination.destroy');
+
+		//Registros de vacina, fabricante e veterinario
+		Route::get('/register/vaccine/create', [VaccineController::class, 'create'])->name('vaccine.create');
+		Route::get('/register/vaccine/store', [VaccineController::class, 'store'])->name('vaccine.store');
+		Route::get('/register/manufacturer/create', [VaccineController::class, 'create'])->name('manufacturer.create');
+		Route::get('/register/manufacturer/store', [VaccineController::class, 'store'])->name('manufacturer.store');
+		Route::get('/register/veterinarian/create', [VeterinarianController::class, 'create'])->name('veterinarian.create');
+		Route::get('/register/veterinarian/store', [VeterinarianController::class, 'store'])->name('veterinarian.store');
 
 		//Rotas agendamento de vacinação
 		Route::get('/appointment/index', [AppointmentController::class, 'index'])->name('appointment.index');		

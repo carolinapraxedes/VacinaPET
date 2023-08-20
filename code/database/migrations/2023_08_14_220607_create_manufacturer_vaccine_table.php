@@ -13,16 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('vaccination', function (Blueprint $table) {
+        Schema::create('manufacturer_vaccine', function (Blueprint $table) {
             $table->id();
-            $table->date('administrationDate');
-            $table->string('lote');
-            $table->integer('dose');
-
-
-
-
-            $table->softDeletes();
+            $table->unsignedBigInteger('manufacturer_id');
+            $table->unsignedBigInteger('vaccine_id');
             $table->timestamps();
         });
     }
@@ -34,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vaccination');
+        Schema::dropIfExists('manufacturer_vaccine');
     }
 };
