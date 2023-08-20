@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::table('vaccination', function (Blueprint $table) {
             
+            $table->unsignedBigInteger('rga');
             $table->unsignedBigInteger('pet_id');
             $table->unsignedBigInteger('vaccine_id');
             $table->unsignedBigInteger('manufacturer_id');
@@ -38,13 +39,18 @@ return new class extends Migration
     {
         Schema::table('vaccination', function (Blueprint $table) {
             // Remover as chaves estrangeiras
+
+            $table->dropForeign(['pet_id']);
             $table->dropForeign(['vaccine_id']);
             $table->dropForeign(['manufacturer_id']);
+            $table->dropForeign(['vaccination_location_id']);
             $table->dropForeign(['veterinarian_id']);
-    
-            // Remover as colunas
+
+            $table->dropColumn('rga');
+            $table->dropColumn('pet_id');
             $table->dropColumn('vaccine_id');
             $table->dropColumn('manufacturer_id');
+            $table->dropColumn('vaccination_location_id');
             $table->dropColumn('veterinarian_id');
         });
     }

@@ -70,7 +70,29 @@ class VaccinationController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+       
+        $pet = Pet::where('RGA', $request->input('rgaPet'))->first();
+        
+        $vaccinationData =[
+            'pet_id'=> $pet->id,
+            'administrationDate' => $request->input('dateVaccination'),
+            'lote' => $request->input('lote'),
+            'dose'=> $request->input('dose'),
+
+            'rga' =>  $request->input('rgaPet'),
+            'vaccine_id' => $request->input('vaccine_id'),
+            'manufacturer_id' => $request->input('manufacturer_id'),
+            'vaccination_location_id'=> $request->input('localVaccination'),
+            'veterinarian_id' => $request->input('veterinarian_id')
+
+        ];
+        
+        Vaccination::create($vaccinationData);
+
+        return redirect()->route('vaccination.index');
+        
+
+
     }
 
     /**
