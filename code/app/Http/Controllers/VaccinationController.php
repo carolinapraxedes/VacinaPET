@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegisterVaccination;
 use App\Models\Manufacturer;
 use App\Models\Pet;
 use App\Models\Specie;
@@ -68,7 +69,7 @@ class VaccinationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RegisterVaccination $request)
     {
        
         $pet = Pet::where('RGA', $request->input('rgaPet'))->first();

@@ -100,6 +100,7 @@
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">Dosagem</label>
                                             <select class="form-control" name="dose" id="dose">
+                                                <option selected disabled>Selecione a dosagem</option>
                                                 <option value="0" {{ old('dose') == '0' ? 'selected' : '' }}>Única</option>
                                                 <option value="1" {{ old('dose') == '1' ? 'selected' : '' }}>Primeira dose</option>
                                                 <option value="2" {{ old('dose') == '2' ? 'selected' : '' }}>Segunda dose</option>
@@ -115,7 +116,7 @@
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">Lote</label>
                                             <input  class="form-control" type="text" name="lote" placeholder="Digite o lote aqui.." id="batchNumber">
-                                            @error('batchNumber') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror                                         
+                                            @error('lote') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror                                         
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -161,7 +162,7 @@
                                                     <option value="{{ $veterinarian->id }}">{{ $veterinarian->name }}</option>
                                                 @endforeach
                                             </select>                                             
-                                            @error('veterinarian') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror 
+                                            @error('veterinarian_id') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror 
                                             
                                         </div>
                                     </div>
