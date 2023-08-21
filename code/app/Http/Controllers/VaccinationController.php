@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegisterVaccination;
 use App\Models\Manufacturer;
 use App\Models\Pet;
 use App\Models\Specie;
@@ -68,9 +69,31 @@ class VaccinationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RegisterVaccination $request)
     {
-        dd($request->all());
+       
+        $pet = Pet::where('RGA', $request->input('rgaPet'))->first();
+        
+        $vaccinationData =[
+            'pet_id'=> $pet->id,
+            'administrationDate' => $request->input('dateVaccination'),
+            'lote' => $request->input('lote'),
+            'dose'=> $request->input('dose'),
+
+            'rga' =>  $request->input('rgaPet'),
+            'vaccine_id' => $request->input('vaccine_id'),
+            'manufacturer_id' => $request->input('manufacturer_id'),
+            'vaccination_location_id'=> $request->input('localVaccination'),
+            'veterinarian_id' => $request->input('veterinarian_id')
+
+        ];
+        
+        Vaccination::create($vaccinationData);
+
+        return redirect()->route('vaccination.index');
+        
+
+
     }
 
     /**

@@ -64,14 +64,14 @@ class PetController extends Controller
             'description' => $request->input('descriptionPet'),
         ];
               
-        $pet = Pet::create($petData);
-
         $tutorData = [
             'name' => $request->input('nameTutor'),
             'CPF' => $request->input('cpfTutor'),
             'email' => $request->input('emailTutor'),
             'numberPhone' => $request->input('numberPhoneTutor'),
         ];
+
+        $pet = Pet::create($petData);
 
         // Cria o tutor
         $tutor = Tutor::create($tutorData);
