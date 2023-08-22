@@ -3,14 +3,14 @@
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'PETS'])
     <div class="row mt-4 mx-4">
-        <div class="col-12">
-            
+        <div class="col-12">           
             <div class="card mb-4">
                 <div class="card-header pb-0">
                     <h6>NOVO PET</h6>
                 </div>
                 <div class="card-body">
-                    <p>AGENDAMENTO OCREATE</p>
+                    <input type="date" name="" id="">
+                    <input type="datetime" name="" id="">
                 </div>
 
             </div>
