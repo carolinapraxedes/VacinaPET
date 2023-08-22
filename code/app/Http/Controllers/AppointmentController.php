@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appointment;
+use App\Models\VaccinationLocation;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
@@ -24,7 +25,8 @@ class AppointmentController extends Controller
      */
     public function create()
     {
-        return view('pages.appointment.create');
+        $locals=VaccinationLocation::all();
+        return view('pages.appointment.create',compact('locals'));
     }
 
     /**
