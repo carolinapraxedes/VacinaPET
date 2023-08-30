@@ -31,6 +31,41 @@
                                             <input type="password" name="password" class="form-control form-control-lg" aria-label="Password" value="secret" >
                                             @error('password') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
                                         </div>
+                                        {{-- <div class="flex flex-col mb-3">
+                                            <div>
+                                                
+                                                <input type="password" name="password" class="form-control form-control-lg" aria-label="Password" value="secret" >
+                                                <i class="fa fa-eye-slash" id="eyeIcon" ></i>
+                                                @error('password') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col mb-3">
+                                            <div class="input-group mb-5">
+   
+                                                <input type="password" class="form-control" id="password" :value="{{ old('password') }}"
+                                                    name="password" placeholder="Senha" required autocomplete="current-password">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-outline-secondary" 
+                                                        
+                            
+                                                        type="button" onclick="visualizarSenha()"><i class="fa fa-eye-slash" id="eyeIcon" ></i></button>
+                                                    </div>
+                            
+                                            </div>
+                                        </div> --}}
+
+
+
+
+
+
+
+
+
+
+
+
+
                                         <div class="form-check form-switch">
                                             <input class="form-check-input" name="remember" type="checkbox" id="rememberMe">
                                             <label class="form-check-label" for="rememberMe">Remember me</label>
