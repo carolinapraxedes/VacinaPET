@@ -4,8 +4,50 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bd3e6e310f766b217edb8b59f654175d",
+    "content-hash": "168b4b810b80fcae3efb64f0fc800df7",
     "packages": [
+        {
+            "name": "apalfrey/select2-bootstrap-5-theme",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/apalfrey/select2-bootstrap-5-theme.git",
+                "reference": "ab448b2ac36a6f7f90b162e384ca2b1469a3cc1f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/apalfrey/select2-bootstrap-5-theme/zipball/ab448b2ac36a6f7f90b162e384ca2b1469a3cc1f",
+                "reference": "ab448b2ac36a6f7f90b162e384ca2b1469a3cc1f",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrew Palfrey",
+                    "email": "apalfrey@apalfrey.me"
+                }
+            ],
+            "description": "Select2 theme for Bootstrap 5",
+            "homepage": "https://github.com/apalfrey/select2-bootstrap-5-theme",
+            "keywords": [
+                "bootstrap",
+                "bootstrap-5",
+                "bootstrap5",
+                "css",
+                "scss",
+                "select2",
+                "theme"
+            ],
+            "support": {
+                "issues": "https://github.com/apalfrey/select2-bootstrap-5-theme/issues",
+                "source": "https://github.com/apalfrey/select2-bootstrap-5-theme/tree/1.3.0"
+            },
+            "time": "2022-05-08T00:12:43+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.11.0",
@@ -5606,6 +5648,52 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/2.2.6"
             },
             "time": "2023-01-03T09:29:04+00:00"
+        },
+        {
+            "name": "ttskch/select2-bootstrap4-theme",
+            "version": "1.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ttskch/select2-bootstrap4-theme.git",
+                "reference": "03fe405b21e4f8165a617b2b269346b1ffdc3619"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ttskch/select2-bootstrap4-theme/zipball/03fe405b21e4f8165a617b2b269346b1ffdc3619",
+                "reference": "03fe405b21e4f8165a617b2b269346b1ffdc3619",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Takashi Kanemoto",
+                    "email": "ttskch@gmail.com"
+                }
+            ],
+            "description": "Select2 v4 theme for Bootstrap4",
+            "keywords": [
+                "bootstrap",
+                "bootstrap4",
+                "css",
+                "scss",
+                "select2",
+                "theme"
+            ],
+            "support": {
+                "issues": "https://github.com/ttskch/select2-bootstrap4-theme/issues",
+                "source": "https://github.com/ttskch/select2-bootstrap4-theme/tree/1.5.2"
+            },
+            "funding": [
+                {
+                    "url": "https://www.paypal.com/paypalme/ttskch",
+                    "type": "custom"
+                }
+            ],
+            "time": "2021-01-28T07:02:26+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

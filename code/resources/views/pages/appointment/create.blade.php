@@ -12,7 +12,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <form role="form" method="POST" action={{ route('vaccination.store') }} enctype="multipart/form-data">
+                            <form role="form" method="POST" action={{ route('appointment.store') }} enctype="multipart/form-data">
                                 @csrf
                                 <p class="text-uppercase text-sm">Informações sobre o agendamento</p>
                                 <div class="row">
@@ -45,9 +45,9 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">Local da vacinação</label>
-                                            <select class="form-control js-example-basic-single"  name="localAppointment" id="localAppointment">
+                                            <select  class="form-select form-control" id="single-select-field" data-placeholder="Selecione um local" name="localAppointment" id="localAppointment">
 
-                                                <option selected disabled>Selecione o local</option>
+                                                <option ></option>
                                                 @foreach($locals as $local)
                                                     <option value="{{ $local->id }}">{{ $local->name }}</option>
                                                 @endforeach
