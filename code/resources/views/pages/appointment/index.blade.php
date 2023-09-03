@@ -10,7 +10,8 @@
                     <h6>NOVO PET</h6>
                 </div>
                 <div class="card-body">
-                    <p>AGENDAMENTO INDEX</p>
+                    <a href="{{ route('appointment.create') }}">AGENDAR</a>
+                    
                 </div>
 
             </div>

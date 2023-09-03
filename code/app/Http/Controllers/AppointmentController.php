@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AppointmentStoreRequest;
+use App\Http\Requests\RegisterAppointmentRequest;
 use App\Models\Appointment;
+use App\Models\Pet;
+use App\Models\VaccinationLocation;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
@@ -24,7 +28,8 @@ class AppointmentController extends Controller
      */
     public function create()
     {
-        return view('pages.appointment.create');
+        $locals=VaccinationLocation::all();
+        return view('pages.appointment.create',compact('locals'));
     }
 
     /**
@@ -33,9 +38,24 @@ class AppointmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RegisterAppointmentRequest $request)
     {
-        //
+     
+
+        $pet = Pet::where('RGA', $request->input('rgaAppointment'))->first();
+        
+        $appointmentData =[
+            'pet_id'=> $pet->id,
+            'rga' => $request->input('rgaAppointment'),
+            'date' => $request->input('dateAppointment'),
+            'time'=> $request->input('timeAppointment'),
+            'location' =>  $request->input('localAppointment'),
+        ];
+        
+        Appointment::create($appointmentData);
+
+        return redirect()->route('appointment.index');
+        
     }
 
     /**

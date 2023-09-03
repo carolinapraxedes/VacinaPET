@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('vaccination', function (Blueprint $table) {
             
-            $table->unsignedBigInteger('rga');
+            $table->string('rga');
             $table->unsignedBigInteger('pet_id');
             $table->unsignedBigInteger('vaccine_id');
             $table->unsignedBigInteger('manufacturer_id');
