@@ -19,8 +19,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">RGA</label>
-                                            <input class="form-control" type="text" name="rgaAppointment"  value="{{ old('dateAppointment') }}">
-                                            
+                                            <input class="form-control" type="text" name="rgaAppointment"  value="{{ old('rgaAppointment') }}">                                            
                                             @error('rgaAppointment') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
                                             
                                         </div>
@@ -46,13 +45,11 @@
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">Local da vacinação</label>
                                             <select  class="form-select form-control" id="single-select-field" data-placeholder="Selecione um local" name="localAppointment" id="localAppointment">
-
                                                 <option ></option>
                                                 @foreach($locals as $local)
                                                     <option value="{{ $local->id }}">{{ $local->name }}</option>
                                                 @endforeach
                                             </select>
-
                                             @error('localAppointment') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
                                         </div>
                                     </div>

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AppointmentStoreRequest;
+use App\Http\Requests\RegisterAppointmentRequest;
 use App\Models\Appointment;
 use App\Models\Pet;
 use App\Models\VaccinationLocation;
@@ -36,7 +38,7 @@ class AppointmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RegisterAppointmentRequest $request)
     {
      
 
