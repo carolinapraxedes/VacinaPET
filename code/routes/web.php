@@ -14,6 +14,7 @@ use App\Http\Controllers\ResetPassword;
 use App\Http\Controllers\ChangePassword;            
 
 use App\Http\Controllers\PetController;
+use App\Http\Controllers\RGAController;
 use App\Http\Controllers\VaccinationController;
 use App\Http\Controllers\VaccineController;
 use App\Http\Controllers\VeterinarianController;
@@ -90,6 +91,15 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 		Route::get('/appointment/{appointment}/edit', [AppointmentController::class, 'edit'])->name('appointment.edit');		
 		Route::put('/appointment/{appointment}', [AppointmentController::class, 'update'])->name('appointment.update');		
 		Route::delete('/appointment/{appointment}', [AppointmentController::class, 'destroy'])->name('appointment.destroy');
+
+		//Rotas RGA
+		Route::get('/rga/index', [RGAController::class, 'index'])->name('rga.index');		
+		Route::get('/rga/create', [RGAController::class, 'create'])->name('rga.create');		
+		Route::post('/rga/store', [RGAController::class, 'store'])->name('rga.store');		
+		Route::get('/rga/{rga}', [RGAController::class, 'show'])->name('rga.show');		
+		Route::get('/rga/{rga}/edit', [RGAController::class, 'edit'])->name('rga.edit');		
+		Route::put('/rga/{rga}', [RGAController::class, 'update'])->name('rga.update');		
+		Route::delete('/rga/{rga}', [RGAController::class, 'destroy'])->name('rga.destroy');
 
 
 
