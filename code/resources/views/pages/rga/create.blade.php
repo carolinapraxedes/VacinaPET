@@ -14,7 +14,7 @@
                             </div>
                         </div>
                         <div class="card-body p-3">
-                            <form role="form" method="POST" action={{ route('pets.store') }} enctype="multipart/form-data">
+                            <form role="form" method="POST" action={{ route('rga.store') }} enctype="multipart/form-data">
                                 @csrf
                                 
                                 <div class="card-body">
@@ -44,9 +44,11 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="example-text-input" class="form-control-label">Data de Nascimento</label>
-                                                <input class="form-control" type="date" name="dateBirthPet" id="dateBirthPet" value="{{ old('dateBirthPet') }}">
-                                                @error('dateBirthPet') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror 
+                                                <label for="example-text-input" class="form-control-label">Data de Nascimento do tutor</label>
+                                                <input class="form-control" type="date" name="dateBirthTutor" id="dateBirthTutor" value="{{ old('dateBirthTutor') }}">
+                                                @error('dateBirthTutor') <p class="text-danger text-xs pt-1" > {{$message}} </p>@enderror 
+                                                <p class="text-danger text-xs pt-1"  id="resultadoIdade">
+                                                
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -64,9 +66,9 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Nome do animal</label>
-                                                <input class="form-control" type="text" placeholder="Digite o nome aqui.." name="colorPet"
-                                                value="{{ old('colorPet') }}">
-                                                    @error('colorPet') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror 
+                                                <input class="form-control" type="text" placeholder="Digite o nome aqui.." name="namePet"
+                                                value="{{ old('namePet') }}">
+                                                    @error('namePet') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror 
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -102,7 +104,7 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="example-text-input" class="form-control-label">Data de Nascimento</label>
+                                                <label for="example-text-input" class="form-control-label">Data de Nascimento do animal</label>
                                                 <input class="form-control" type="date" name="dateBirthPet" id="dateBirthPet" value="{{ old('dateBirthPet') }}">
                                                 @error('dateBirthPet') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror 
                                             </div>
@@ -110,13 +112,13 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Cor</label>
-                                                <select class="form-control" name="speciePet" id="speciePet" >
+                                                <select class="form-select form-control" id="single-select-field" name="colorPet" id="colorPet" >
                                                     <option selected disabled>Selecione a cor do animal</option>
                                                     @foreach ($colors as $color)
                                                         <option value="{{ $color->id }}">{{ $color->Color }}</option>
                                                     @endforeach
                                                 </select>
-                                                @error('speciePet') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
+                                                @error('colorPet') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
                                             </div>
                                         </div>
 
@@ -124,25 +126,25 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Porte do animal</label>
-                                                <select class="form-control" name="speciePet" id="speciePet" >
+                                                <select class="form-control" name="sizePet" id="sizePet" >
                                                     <option selected disabled>Selecione o porte</option>
                                                     @foreach ($sizes as $size)
                                                         <option value="{{ $size->id }}">{{ $size->Size }}</option>
                                                     @endforeach
                                                 </select>
-                                                @error('speciePet') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
+                                                @error('sizePet') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Pelagem do animal</label>
-                                                <select class="form-control" name="speciePet" id="speciePet" >
+                                                <select class="form-control" name="coatPet" id="coatPet" >
                                                     <option selected disabled>Selecione a pelagem</option>
                                                     @foreach ($coats as $coat)
                                                         <option value="{{ $coat->id }}">{{ $coat->Coat }}</option>
                                                     @endforeach
                                                 </select>
-                                                @error('speciePet') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
+                                                @error('coatPet') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
                                             </div>
                                         </div>                                     
                                     </div>
@@ -152,31 +154,31 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Perfil  do animal</label>
-                                                <select class="form-control" name="speciePet" id="speciePet" >
+                                                <select class="form-control" name="profilePet" id="profilePet" >
                                                     <option selected disabled>Selecione o  perfil</option>
                                                     @foreach ($profiles as $profile)
                                                         <option value="{{ $profile->id }}">{{ $profile->Profile }}</option>
                                                     @endforeach
                                                 </select>
-                                                @error('speciePet') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
+                                                @error('profilePet') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
                                             </div>
                                         </div>          
 
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Procedência do animal</label>
-                                                <select class="form-control" name="speciePet" id="speciePet" >
+                                                <select class="form-control" name="provenancePet" id="provenancePet" >
                                                     <option selected disabled>Selecione a procedência</option>
                                                     @foreach ($provenances as $provenance)
                                                         <option value="{{ $provenance->id }}">{{ $provenance->Provenance }}</option>
                                                     @endforeach
                                                 </select>
-                                                @error('speciePet') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
+                                                @error('provenancePet') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
                                             </div>
                                         </div>          
 
                                     </div>
-                                    <hr class="horizontal dark">
+                                    
                                     <div class="row">
                                         <div class="d-flex align-items-center">
                                                                            
@@ -196,7 +198,7 @@
 
     <script type="text/javascript">
         $(document).ready(function(){
-            $('#numberPhoneTutor').mask('(00) 00000-0000');
+            $('#numberPhoneTutor').mask('(00)00000-0000');
             $('#cpfTutor').mask('000.000.000-00', {reverse: true});
             
 
@@ -219,6 +221,28 @@
                 });
             });
         });
+
+        $(document).ready(function () {
+            $('#dateBirthTutor').on('input', function () {
+                let dateInput = $("#dateBirthTutor").val();
+                let dateBirthTutor = new Date(dateInput);
+                let today = new Date();
+
+                let age = today.getFullYear() - dateBirthTutor.getFullYear();
+
+                console.log(age);
+                if (age < 18) {
+                    console.log('É menor');
+                // Se a idade for menor que 18, altere a mensagem de erro
+                $("#resultadoIdade").text("Você tem menos de 18 anos.");
+            } else {
+                // Se a idade for 18 ou mais, limpe a mensagem de erro
+                $("#resultadoIdade").text("");
+            }
+            });
+        });
+
+
 
     
     </script>
