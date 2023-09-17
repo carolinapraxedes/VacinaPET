@@ -32,5 +32,11 @@ class DatabaseSeeder extends Seeder
 
         $this->call(TutorSeeder::class);
         $this->call(PetSeeder::class);
+
+        $this->call(ColorPetSeeder::class);
+        $this->call(SizePetSeeder::class);
+        $this->call(CoatPetSeeder::class);
+        $this->call(ProfilePetSeeder::class);
+        $this->call(ProvenancePetSeeder::class);
     }
 }

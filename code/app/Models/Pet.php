@@ -46,5 +46,9 @@ class Pet extends Model
     public function tutor(){
         return $this->belongsTo(Tutor::class,'tutor_id');
     }
+    public function rga()
+    {
+        return $this->belongsTo(RGA::class);
+    }
 
 }

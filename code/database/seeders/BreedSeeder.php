@@ -71,7 +71,8 @@ class BreedSeeder extends Seeder
             'Somali',
             'Van Turco',
             'Vankedisi',
-            'Desconhecido'
+            'SRD - Sem raça definida',
+            'Raça não informada',
         ];
 
         $speciesIdPet = 1;
@@ -153,7 +154,8 @@ class BreedSeeder extends Seeder
             'West Highland White Terrier',
             'Whippet',
             'Yorkshire Terrier',
-            'Desconhecido',
+            'SRD - Sem raça definida',
+            'Raça não informada',
         ];
 
 

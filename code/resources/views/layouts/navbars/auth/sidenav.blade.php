@@ -45,7 +45,7 @@
                 </a>
             </li>
            <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'pets.create' ? 'active' : '' }}" href="{{ route('pets.index') }}">
+                <a class="nav-link {{ Route::currentRouteName() == 'rga.index' ? 'active' : '' }}" href="{{ route('rga.index') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="far fa-id-card text-dark text-sm opacity-10"></i>
                     </div>

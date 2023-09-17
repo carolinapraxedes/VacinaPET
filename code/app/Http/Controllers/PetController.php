@@ -46,11 +46,11 @@ class PetController extends Controller
      */
     public function store(RegisterPetRequest $request)
     {
-        //Idade em meses
-        $dateOfBirth = $request->input('dateBirthPet');
-        $today = Carbon::now();
-        $birthDate = Carbon::parse($dateOfBirth);
-        $age = $birthDate->diffInMonths($today);
+        //Idade do pet em meses
+        $dateOfBirth = Carbon::parse($request->input('dateBirthPet'));
+
+        $age = $dateOfBirth->diffInMonths(Carbon::now());
+        
         
         $petData = [
             'name' => $request->input('namePet'),
