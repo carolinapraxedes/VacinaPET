@@ -89,7 +89,7 @@ class RGAController extends Controller
             'provenancePet_id' => $request->input('provenancePet'),
             
         ];
-        //dd($data);
+        
 
         RGA::create($data);
 
@@ -107,7 +107,8 @@ class RGAController extends Controller
      */
     public function show($id)
     {
-        //
+        $rga = RGA::find($id);
+        return view('pages.rga.show',compact('rga'));
     }
 
     /**
@@ -118,7 +119,7 @@ class RGAController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
@@ -143,4 +144,14 @@ class RGAController extends Controller
     {
         //
     }
+
+    public function listOpen(){
+        $rgas = RGA::all();
+        return view('pages.rga.request.open.index',compact('rgas'));
+    }
+    public function listClose(){
+        dd('entoru na lista close');
+    }
+
+    
 }

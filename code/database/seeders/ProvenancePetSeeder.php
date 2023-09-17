@@ -19,8 +19,8 @@ class ProvenancePetSeeder extends Seeder
             'Adotado',
             'Comprado',
             'Encontrado sem tutor',
-            'Ganhou',
-            'Herdou',
+            'Ganhado',
+            'Herdado',
             'Outra'
         ];
         
