@@ -2,7 +2,7 @@
 
 ## Descrição do projeto
 
-O RN+PET é um sistema de software que facilita o acesso e o controle da vacinação de animais de estimação. Ele permite que os tutores agendem vacinações, recebam lembretes automáticos e tenham acesso ao histórico detalhado de vacinações. Para os profissionais de saúde, o sistema oferece um registro preciso e atualizado das vacinações administradas, permitindo um monitoramento eficiente. O RN+PET também fornece análises de dados sobre a vacinação a nível estadual.
+O VacinaPET é um sistema de software que facilita o acesso e o controle da vacinação de animais de estimação. Ele permite que os tutores agendem vacinações, recebam lembretes automáticos e tenham acesso ao histórico detalhado de vacinações. Para os profissionais de saúde, o sistema oferece um registro preciso e atualizado das vacinações administradas, permitindo um monitoramento eficiente. O RN+PET também fornece análises de dados sobre a vacinação a nível estadual.
 
 ## Documentaçao do projeto
 
