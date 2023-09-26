@@ -35,6 +35,7 @@ class RGA extends Model
         'profilePet_id',
         'provenancePet_id',
         'pet_id',
+        'processRGA_id'
         
     ];
     protected $dates = [
@@ -45,7 +46,6 @@ class RGA extends Model
     public function pet(){
         return $this->belongsTo(Pet::class,'pet_id');
     }
-
 
     public function specie(){
         return $this->belongsTo(Specie::class,'speciePet_id');
@@ -67,8 +67,12 @@ class RGA extends Model
         return $this->belongsTo(ProfilePet::class,'profilePet_id');
     }
 
-    public function ProvenancePet(){
+    public function provenancePet(){
         return $this->belongsTo(ProvenancePet::class,'provenancePet_id');
+    }
+
+    public function process(){
+        return $this->hasOne(ProcessRGA::class,'processRGA_id');
     }
 
 }

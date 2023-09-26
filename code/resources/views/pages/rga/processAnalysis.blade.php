@@ -1,4 +1,4 @@
-{{-- @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
+@extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'PETS'])
@@ -126,12 +126,12 @@
 
                                 </div>
                                 
-                                <div class="row">
-                                    <div class="d-flex align-items-center">
-                                                                       
-                                        <button type="submit" class="btn btn-success btn-sm ms-auto mx-1">Aceitar</button>
-                                        <button type="submit" class="btn btn-danger btn-sm mx-1">Rejeitar</button>
-                                        <button type="submit" class="btn btn-gray-700 btn-sm mx-1">Cancelar</button>
+                                <div class="row mt-2">
+                                    <div class="d-flex  justify-content-end">                                                                       
+                                        <a class="btn btn-success btn-sm  mx-1" id="accepted" href="">Aceitar</a>
+                                        <a class="btn btn-danger btn-sm  mx-1" href="{{route('rga.index')}}">Rejeitar</a>
+                                        <a class="btn btn-info btn-sm  mx-1" href="{{route('rga.index')}}">Cancelar</a>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -149,4 +149,4 @@
     
     </script>
     
-@endsection --}}
+@endsection

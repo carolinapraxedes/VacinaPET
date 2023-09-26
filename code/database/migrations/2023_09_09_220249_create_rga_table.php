@@ -38,6 +38,8 @@ return new class extends Migration
             $table->unsignedBigInteger('profilePet_id');
             $table->unsignedBigInteger('provenancePet_id');
             $table->unsignedBigInteger('pet_id')->nullable();
+            
+            
 
 
             $table->timestamps();

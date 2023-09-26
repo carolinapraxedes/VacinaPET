@@ -100,8 +100,8 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 		Route::put('/rga/{rga}', [RGAController::class, 'update'])->name('rga.update');		
 		Route::delete('/rga/{rga}', [RGAController::class, 'destroy'])->name('rga.destroy');
 
-		Route::get('/rga/{rga}', [RGAController::class, 'show'])->name('rga.show');
-		Route::post('/rga/{rga}', [RGAController::class, 'show'])->name('rga.show');
+		Route::get('/process/{process}', [RGAController::class, 'processRGA'])->name('rga.processRGA');
+		Route::post('/process/{process}', [RGAController::class, 'show'])->name('rga.show');
 		Route::get('/rga/list/requestOpen', [RGAController::class, 'listOpen'])->name('rga.listOpen');
 		Route::get('/rga/list/requestClose', [RGAController::class, 'listClose'])->name('rga.listClose');
 		

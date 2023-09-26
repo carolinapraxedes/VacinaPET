@@ -16,8 +16,8 @@ class SpecieSeeder extends Seeder
     public function run()
     {
         // Criar registros de espécies
-        Specie::create(['specie' => 'dog']);
-        Specie::create(['specie' => 'cat']);
+        Specie::create(['specie' => 'Canino']);
+        Specie::create(['specie' => 'Felino']);
         
     }
 }

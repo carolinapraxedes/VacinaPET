@@ -6,6 +6,7 @@ use App\Http\Requests\RegisterRGArequest;
 use App\Models\Breed;
 use App\Models\CoatPet;
 use App\Models\ColorPet;
+use App\Models\ProcessRGA;
 use App\Models\ProfilePet;
 use App\Models\ProvenancePet;
 use App\Models\RGA;
@@ -53,7 +54,7 @@ class RGAController extends Controller
      */
     public function store(RegisterRGArequest $request)
     {
-        //dd($request->all());
+        
         // Obtenha a data de nascimento do tutor e do pet do request
         $dateBirthTutor = Carbon::parse($request->input('dateBirthTutor'));
         $dateBirthPet = Carbon::parse($request->input('dateBirthPet'));
@@ -65,7 +66,7 @@ class RGAController extends Controller
         $agePet = $dateBirthPet->diffInMonths(Carbon::now());
         //dd($agePet);
 
-        $data = [
+        $dataRGA = [
             
             'nameTutor' => $request->input('nameTutor'),
             'emailTutor' => $request->input('emailTutor'),
@@ -90,8 +91,19 @@ class RGAController extends Controller
             
         ];
         
+        $rgaRequest = RGA::create($dataRGA);
 
-        RGA::create($data);
+        $dataProcess = [
+            'rga_id'=> $rgaRequest->id,
+            'requestDate' => Carbon::now(),
+            'status'=> 0,
+            'analysisDate'=> null,
+            'reasonReject'=> null,
+        ];
+        
+        ProcessRGA::create($dataProcess);
+
+
 
         return redirect()->route('home');
 
@@ -107,8 +119,7 @@ class RGAController extends Controller
      */
     public function show($id)
     {
-        $rga = RGA::find($id);
-        return view('pages.rga.show',compact('rga'));
+        // 
     }
 
     /**
@@ -147,8 +158,16 @@ class RGAController extends Controller
 
     public function listOpen(){
         $rgas = RGA::all();
-        return view('pages.rga.request.open.index',compact('rgas'));
+        $process = ProcessRGA::all();
+        return view('pages.rga.request.open.index',compact('rgas','process'));
     }
+
+    public function processRGA($id)
+    {
+        $rga = RGA::find($id);
+        return view('pages.rga.processAnalysis',compact('rga'));
+    }
+
     public function listClose(){
         dd('entoru na lista close');
     }

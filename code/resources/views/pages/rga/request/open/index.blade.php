@@ -23,33 +23,43 @@
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">Espécie
                                         </th>  
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">Perfil
-                                        </th>                            
+                                        </th>    
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">Data da solicitação
+                                        </th>   
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">Status
+                                        </th>                             
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Processo</th>
                                     </tr>
                                 </thead>
                                 <tbody>  
-                                    @foreach ($rgas as $rga)
+                                    @foreach ($process as $item)
                                         <tr>
                                             <td style="text-align: center;">
-                                                {{ $rga->id }}
+                                                {{ $item->id }}
                                             </td>
                                             <td>
-                                                {{ $rga->nameTutor }}
+                                                {{ $item->rga->nameTutor}}
                                             </td>
                                             <td>
-                                                {{ $rga->specie->specie}}
+                                                {{ $item->rga->specie->specie}}
                                                 {{-- <div class="d-flex px-3 py-1 justify-content-center align-items-center">
                                                    Delete</p>
                                                 </div> --}}
                                             </td>
                                             <td>
-                                                {{ $rga->profilePet->Profile }}
-
+                                                {{ $item->rga->provenancePet->Provenance}}
                                             </td>
                                             <td>
-                                                <a href="{{ route('rga.show',$rga->id) }}" class="btn btn-primary"><i class="far fa-eye"></i> Visualizar</a>
+                                                {{ \Carbon\Carbon::parse($item->requestDate)->format('d/m/Y') }}
+                                            </td>
+                                            <td>
+                                                <span class="badge bg-gradient-info">{{ $item->status }}</span>
+                                                
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('rga.processRGA',$item->id) }}" class="btn btn-primary"><i class="far fa-eye"></i> Visualizar</a>
                                             </td>
                                         </tr>
                                         

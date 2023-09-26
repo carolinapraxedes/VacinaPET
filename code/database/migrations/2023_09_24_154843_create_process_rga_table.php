@@ -13,9 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('specie', function (Blueprint $table) {
+        Schema::create('process_rga', function (Blueprint $table) {
             $table->id();
-            $table->enum('specie', ['Canino', 'Felino']);
+            $table->unsignedBigInteger('rga_id');
+            $table->date('requestDate');
+            $table->unsignedBigInteger('status')->default(0);
+            $table->date('analysisDate')->nullable();
+            $table->string('reasonReject')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('specie');
+        Schema::dropIfExists('process_rga');
     }
 };
