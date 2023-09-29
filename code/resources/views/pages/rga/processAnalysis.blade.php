@@ -128,9 +128,9 @@
                                 
                                 <div class="row mt-2">
                                     <div class="d-flex  justify-content-end">                                                                       
-                                        <a class="btn btn-success btn-sm  mx-1" id="accepted" href="">Aceitar</a>
-                                        <a class="btn btn-danger btn-sm  mx-1" href="{{route('rga.index')}}">Rejeitar</a>
-                                        <a class="btn btn-info btn-sm  mx-1" href="{{route('rga.index')}}">Cancelar</a>
+                                        <a class="btn btn-success btn-sm mx-1" id="acceptedProcess" data-url="{{ route('rga.accepted', ['processRGA' => $rga->id]) }}">Aceitar</a>
+                                        <a class="btn btn-danger btn-sm mx-1" href="{{route('rga.index')}}">Rejeitar</a>
+                                        <a class="btn btn-info btn-sm mx-1" href="{{route('rga.index')}}">Cancelar</a>
                                         
                                     </div>
                                 </div>
@@ -144,9 +144,6 @@
     </div>
     @include('layouts.footers.auth.footer')
 
-    <script type="text/javascript">
-
-    
-    </script>
+    <script src="{{ asset('assets/js/processRGA.js') }}"></script>
     
 @endsection

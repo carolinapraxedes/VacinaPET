@@ -14,6 +14,8 @@ use App\Models\SizePet;
 use App\Models\Specie;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
 
 class RGAController extends Controller
 {
@@ -172,5 +174,20 @@ class RGAController extends Controller
         dd('entoru na lista close');
     }
 
+    public function acceptedRGA($id)
+    {
+        $randomNumber = random_int(10000000, 99999999);
+
+        dd($randomNumber);
+        try {   
+            
+            ProcessRGA::where('rga_id', $id)->update(['status' => 1,'analysisDate' => Carbon::now()]);
+    
+            return response()->json(['message' => 'RGA aceito com sucesso'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Ocorreu um erro ao aceitar o RGA'], 500);
+        }
+
+    }
     
 }
