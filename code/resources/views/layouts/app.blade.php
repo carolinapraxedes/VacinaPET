@@ -35,7 +35,8 @@
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   
 
 
     
@@ -46,6 +47,7 @@
 </head>
 
 <body class="{{ $class ?? '' }}">
+    
 
     @guest
         @yield('content')
@@ -103,6 +105,7 @@
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="{{ asset('assets/js/argon-dashboard.js') }}"></script>
     @stack('js');
+    @yield('scripts')
 </body>
 
 </html>

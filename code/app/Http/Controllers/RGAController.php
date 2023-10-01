@@ -13,6 +13,7 @@ use App\Models\RGA;
 use App\Models\SizePet;
 use App\Models\Specie;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -103,8 +104,14 @@ class RGAController extends Controller
             'reasonReject'=> null,
         ];
         
-        ProcessRGA::create($dataProcess);
+        $process =  ProcessRGA::create($dataProcess);
 
+        $rgaRequest->update(['process_id' => $process->id]);
+        
+        $rgaRequest->save();
+       
+
+        
 
 
         return redirect()->route('home');
@@ -161,11 +168,13 @@ class RGAController extends Controller
     public function listOpen(){
         $rgas = RGA::all();
         $process = ProcessRGA::all();
+        //dd($process);
         return view('pages.rga.request.open.index',compact('rgas','process'));
     }
 
     public function processRGA($id)
     {
+        //dd(RGA::find($id));
         $rga = RGA::find($id);
         return view('pages.rga.processAnalysis',compact('rga'));
     }
@@ -175,17 +184,26 @@ class RGAController extends Controller
     }
 
     public function acceptedRGA($id)
-    {
+    {       
         $randomNumber = random_int(10000000, 99999999);
+        
+        $rga = RGA::where('id',$id)->first();
+        $process = processRGA::where('rga_id',$id)->first();             
+        try { 
+            if(empty($rga->rga)){           
+                $rga->update(['rga' => $randomNumber]);
+                $rga->save();
 
-        dd($randomNumber);
-        try {   
-            
-            ProcessRGA::where('rga_id', $id)->update(['status' => 1,'analysisDate' => Carbon::now()]);
-    
-            return response()->json(['message' => 'RGA aceito com sucesso'], 200);
+                $process->update(['status' => 1,'analysisDate' => Carbon::now()]);
+           
+                return back()->with('success','success');
+            }else{
+                
+                return back()->with('error','error');
+            }  
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Ocorreu um erro ao aceitar o RGA'], 500);
+            return back()->with('error', $e->getMessage());
+            
         }
 
     }

@@ -59,7 +59,7 @@
                                                 
                                             </td>
                                             <td>
-                                                <a href="{{ route('rga.processRGA',$item->id) }}" class="btn btn-primary"><i class="far fa-eye"></i> Visualizar</a>
+                                                <a href="{{ route('rga.processRGA',$item->rga_id) }}" class="btn btn-primary"><i class="far fa-eye"></i> Visualizar</a>
                                             </td>
                                         </tr>
                                         

@@ -35,7 +35,7 @@ class RGA extends Model
         'profilePet_id',
         'provenancePet_id',
         'pet_id',
-        'processRGA_id'
+        'process_id'
         
     ];
     protected $dates = [
@@ -72,7 +72,7 @@ class RGA extends Model
     }
 
     public function process(){
-        return $this->hasOne(ProcessRGA::class,'processRGA_id');
+        return $this->hasOne(ProcessRGA::class,'process_id');
     }
 
 }
