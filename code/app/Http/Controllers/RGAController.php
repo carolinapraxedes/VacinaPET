@@ -167,7 +167,7 @@ class RGAController extends Controller
 
     public function listOpen(){
         $rgas = RGA::all();
-        $process = ProcessRGA::all();
+        $process = ProcessRGA::where('status',0)->get();
         //dd($process);
         return view('pages.rga.request.open.index',compact('rgas','process'));
     }
@@ -195,14 +195,15 @@ class RGAController extends Controller
                 $rga->save();
 
                 $process->update(['status' => 1,'analysisDate' => Carbon::now()]);
+
            
-                return back()->with('success','success');
+                return redirect()->route('rga.index')->with('success','RGA cadastrado com sucesso!');
             }else{
                 
-                return back()->with('error','error');
+                return redirect()->route('rga.index')->with('warning',"O RGA já existe");
             }  
         } catch (\Exception $e) {
-            return back()->with('error', $e->getMessage());
+            return redirect()->route('rga.index')->with('error', $e->getMessage());
             
         }
 

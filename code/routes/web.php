@@ -106,7 +106,7 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 		Route::get('/rga/list/requestClose', [RGAController::class, 'listClose'])->name('rga.listClose');
 
 		Route::get('/rga/list/requestOpen/{processRGA}/accepted', [RGAController::class, 'acceptedRGA'])->name('rga.accepted');
-
+		Route::post('/rga/list/requestOpen/{processRGA}/accepted', [RGAController::class, 'acceptedRGA'])->name('rga.accepted');
 
 		
 			

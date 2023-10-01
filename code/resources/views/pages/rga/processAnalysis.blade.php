@@ -12,8 +12,8 @@
                         </div>
                     </div>
                     <div class="card-body p-3">
-                        <form role="form" method="POST" action={{ route('rga.store') }} enctype="multipart/form-data">
-                            @csrf
+                       
+
 
                             <div class="card-body">
                                 <p class="text-uppercase text-sm">Informações do tutor</p>
@@ -136,9 +136,20 @@
 
                                 <div class="row mt-2">
                                     <div class="d-flex  justify-content-end">
-                                        <a class="btn btn-success btn-sm mx-1" id="acceptedProcess"
-                                            href="{{ route('rga.accepted', ['processRGA' => $rga->id]) }}">Aceitar</a>
-                                        <a class="btn btn-danger btn-sm mx-1" href="{{ route('rga.index') }}">Rejeitar</a>
+                                        <form role="form" id="acceptedProcess" method="POST" action={{ route('rga.accepted', ['processRGA' => $rga->id]) }}>
+                                            @csrf
+                                            <button type="submit" class="btn btn-success btn-sm mx-1" 
+                                                href="">Aceitar</button>
+                                            
+                                        </form>
+                                        <form role="form" id="rejectedProcess" method="POST" action="
+                                        ">
+                                            @csrf
+                                            <button type="submit" class="btn btn-danger btn-sm mx-1" 
+                                                href="">Rejeitar</button>
+                                           
+                                        </form>
+
                                         <a class="btn btn-info btn-sm mx-1" href="{{ route('rga.index') }}">Cancelar</a>
 
                                     </div>
@@ -154,47 +165,35 @@
     @include('layouts.footers.auth.footer')
 @endsection
 @section('scripts')
-    <script>
+    <script>     
         $('#acceptedProcess').on('submit', function(e) {
+            console.log('entrou');
             e.preventDefault();
             Swal.fire({
-                title: 'Tem certeza que deseja aprovar?',
-                text: "Não será possível reverter!",
-                icon: 'warning',
+                title: 'Tem certeza que deseja aceitar?',
+                showDenyButton: false,
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Sim, tenho certeza!'
+                confirmButtonText: 'Registrar',
+                cancelButtonText: `Cancelar`,
             }).then((result) => {
-                this.submit()
                 if (result.isConfirmed) {
-                    Swal.fire(
-                        'RGA aprovado!',
-                        'Processo movido para processos concluídos.',
-                        'success'
-                    )
+                    this.submit(); // Submeter o formulário se "Registrar" for clicado
                 }
             })
         })
+        $('#rejectedProcess').on('submit', function(e) {
+            console.log('entrou');
+            e.preventDefault();
+            Swal.fire({
+                title: 'Do you want to save the changes?',
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: 'Save',
+                denyButtonText: `Don't save`,
+            }).then((result) => {
+              this.submit();
+            })
+        })
     </script>
-     @if (Session::has('success'))
-        <script>
-            Swal.fire({
-                
-                icon: 'success',
-                title: 'Your work has been saved',
-                showConfirmButton: false,
-                timer: 1500
-            })
-        </script>
-    @elseif (Session::has('error'))
-        <script>
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Something went wrong!',
-                
-            })
-        </script>
-    @endif
+
 @endsection
