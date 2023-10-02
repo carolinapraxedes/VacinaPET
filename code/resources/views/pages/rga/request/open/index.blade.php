@@ -76,6 +76,12 @@
                             <p class="text-center my-auto"><strong>Nenhum processo pendente foi encontrado.</strong></p>
                         </div>                                                
                     @endif
+                    <div class="row mx-5">
+                        <div class="d-flex  justify-content-end">
+
+                            <a class="btn btn-primary" href="{{ route('rga.index') }}">Voltar</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
