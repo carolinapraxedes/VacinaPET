@@ -174,13 +174,16 @@ class RGAController extends Controller
 
     public function processRGA($id)
     {
-        //dd(RGA::find($id));
         $rga = RGA::find($id);
+        //sdd($rga->breed->breed);
         return view('pages.rga.processAnalysis',compact('rga'));
     }
 
     public function listClose(){
-        dd('entoru na lista close');
+        
+        $rgas = RGA::all();
+        $process = ProcessRGA::where('status',1)->get();
+        return view('pages.rga.request.close.index',compact('rgas','process'));
     }
 
     public function acceptedRGA($id)
@@ -202,6 +205,23 @@ class RGAController extends Controller
                 
                 return redirect()->route('rga.index')->with('warning',"O RGA já existe");
             }  
+        } catch (\Exception $e) {
+            return redirect()->route('rga.index')->with('error', $e->getMessage());
+            
+        }
+
+    }
+
+    public function rejectedRGA(Request $request, $id)
+    {       
+        $process = processRGA::where('rga_id',$id)->first(); 
+        $motive =  $request->reasonReject;         
+        try { 
+                 
+            $process->update(['status' => 1,'analysisDate' => Carbon::now(),'reasonReject'=>$motive]);
+       
+            return redirect()->route('rga.index')->with('warning','Processo de RGA rejeitado com sucesso!');    
+   
         } catch (\Exception $e) {
             return redirect()->route('rga.index')->with('error', $e->getMessage());
             
