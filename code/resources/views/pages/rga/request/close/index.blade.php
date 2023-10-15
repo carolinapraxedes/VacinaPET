@@ -73,9 +73,9 @@
                         </div>                                                
                     @endif
                     <div class="row mx-5">
-                        <div class="d-flex  justify-content-end">
+                        <div class="d-flex  justify-content-start">
 
-                            <a class="btn btn-primary" href="{{ route('rga.index') }}">Voltar</a>
+                            <a class="btn btn-secondary" href="{{ route('rga.index') }}">Voltar</a>
                         </div>
                     </div>
                 </div>

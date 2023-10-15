@@ -77,7 +77,9 @@
                                                 <select class="form-control" name="speciePet" id="speciePet" >
                                                     <option selected disabled>Selecione uma espécie</option>
                                                     @foreach ($species as $specie)
-                                                        <option value="{{ $specie->id }}">{{ $specie->specie === 'dog' ? 'Canino' : 'Felino'}}</option>
+                                                        <option value="{{ $specie->id }}" {{ old('speciePet') == $specie->id ? 'selected' : '' }}>
+                                                            {{ $specie->specie === 'dog' ? 'Canino' : 'Felino'}}
+                                                        </option>
                                                     @endforeach
                                                 </select>
                                                 @error('speciePet') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
@@ -115,7 +117,7 @@
                                                 <select class="form-select form-control" id="single-select-field" name="colorPet" id="colorPet" >
                                                     <option selected disabled>Selecione a cor do animal</option>
                                                     @foreach ($colors as $color)
-                                                        <option value="{{ $color->id }}">{{ $color->Color }}</option>
+                                                        <option value="{{ $color->id }}" {{ old('colorPet') == $color->id ? 'selected' :  '' }}>{{ $color->Color }}</option>
                                                     @endforeach
                                                 </select>
                                                 @error('colorPet') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
@@ -129,7 +131,7 @@
                                                 <select class="form-control" name="sizePet" id="sizePet" >
                                                     <option selected disabled>Selecione o porte</option>
                                                     @foreach ($sizes as $size)
-                                                        <option value="{{ $size->id }}">{{ $size->Size }}</option>
+                                                        <option value="{{ $size->id }}" {{ old('sizePet') == $size->id ? 'selected' : '' }}>{{ $size->Size }}</option>
                                                     @endforeach
                                                 </select>
                                                 @error('sizePet') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
@@ -141,7 +143,7 @@
                                                 <select class="form-control" name="coatPet" id="coatPet" >
                                                     <option selected disabled>Selecione a pelagem</option>
                                                     @foreach ($coats as $coat)
-                                                        <option value="{{ $coat->id }}">{{ $coat->Coat }}</option>
+                                                        <option value="{{ $coat->id }}" {{ old('coatPet') == $coat->id  ? 'selected' : '' }}>{{ $coat->Coat }}</option>
                                                     @endforeach
                                                 </select>
                                                 @error('coatPet') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
@@ -157,7 +159,7 @@
                                                 <select class="form-control" name="profilePet" id="profilePet" >
                                                     <option selected disabled>Selecione o  perfil</option>
                                                     @foreach ($profiles as $profile)
-                                                        <option value="{{ $profile->id }}">{{ $profile->Profile }}</option>
+                                                        <option value="{{ $profile->id }}" {{ old('profilePet') == $profile->id  ? 'selected' : '' }}>{{ $profile->Profile }}</option>
                                                     @endforeach
                                                 </select>
                                                 @error('profilePet') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
@@ -170,7 +172,7 @@
                                                 <select class="form-control" name="provenancePet" id="provenancePet" >
                                                     <option selected disabled>Selecione a procedência</option>
                                                     @foreach ($provenances as $provenance)
-                                                        <option value="{{ $provenance->id }}">{{ $provenance->Provenance }}</option>
+                                                        <option value="{{ $provenance->id }}" {{ old('provenancePet') == $provenance->id  ? 'selected' : '' }} >{{ $provenance->Provenance }}</option>
                                                     @endforeach
                                                 </select>
                                                 @error('provenancePet') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
