@@ -1,4 +1,4 @@
-# RN+PET 🐱 🐶 🔬
+# <img src="https://github.com/tads-cnat/VacinaPET/blob/main/code/public/assets/img/logos/vacinapet.png" width="5%"> VacinaPET 
 
 ## Descrição do projeto
 
