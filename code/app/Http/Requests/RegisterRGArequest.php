@@ -31,7 +31,7 @@ class RegisterRGArequest extends FormRequest
             'dateBirthTutor' => ['required','date', new minAgeTutor],
             'numberPhoneTutor' => 'required|string|max:15',
           
-            'namePet' => 'required|string|min:3|max:14',
+            'namePet' => 'required|string|min:3|max:60',
             'speciePet' => 'required',
             'breedPet' => 'required',
             'genderPet' => 'required',

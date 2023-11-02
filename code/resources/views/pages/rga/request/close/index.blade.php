@@ -8,7 +8,7 @@
                 <div class="card shadow-lg mx-4 ">
                     <div class="card-header pb-0">
                         <div class="d-flex align-items-center">
-                            <p class="mb-0">Lista de solicitações de RGA pendentes</p>                                
+                            <p class="mb-0">Lista de solicitações de RGA concluído</p>                                
                         </div>
                     </div> 
                     @if(count($process)>0)                             
@@ -29,9 +29,7 @@
                                             </th>   
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">Status
                                             </th>                             
-                                            <th
-                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Processo</th>
+                                            
                                         </tr>
                                     </thead>
                                     <tbody>  
@@ -59,9 +57,7 @@
                                                     <span class="badge bg-gradient-info">{{ $item->status }}</span>
                                                     
                                                 </td>
-                                                <td>
-                                                    <a href="{{ route('rga.processRGA',$item->rga_id) }}" class="btn btn-primary"><i class="far fa-eye"></i> Visualizar</a>
-                                                </td>
+                                               
                                             </tr>
                                         @endforeach
                                             

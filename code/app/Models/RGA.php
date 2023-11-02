@@ -53,7 +53,6 @@ class RGA extends Model
     public function breed(){
         return $this->belongsTo(Breed::class,'breedPet_id');
     }
-
     public function color(){
         return $this->belongsTo(ColorPet::class,'colorPet_id');
     }

@@ -22,4 +22,7 @@ class Breed extends Model
     {
         return $this->belongsTo(Species::class);
     }
+    public function rga(){
+        return $this->hasMany(RGA::class, 'breedPet_id');
+    }
 }

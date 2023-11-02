@@ -69,53 +69,54 @@ class RGAController extends Controller
         $agePet = $dateBirthPet->diffInMonths(Carbon::now());
         //dd($agePet);
 
-        $dataRGA = [
+        try { 
+            $dataRGA = [
             
-            'nameTutor' => $request->input('nameTutor'),
-            'emailTutor' => $request->input('emailTutor'),
-            'cpfTutor' => $request->input('cpfTutor'),
-            'dateBirthTutor' => $request->input('dateBirthTutor'),
-            'ageTutor' => $ageTutor,
-            'numberPhoneTutor' => $request->input('numberPhoneTutor'),
-
-
-            'namePet' => $request->input('namePet'),
-            'speciePet_id' => $request->input('speciePet'),
-            'breedPet_id' => $request->input('breedPet'),
-            'genderPet' => $request->input('genderPet'),
-            'dateBirthPet' => $request->input('dateBirthPet'),
-            'agePet' => $agePet,
-
-            'colorPet_id' => $request->input('colorPet'),
-            'sizePet_id' => $request->input('sizePet'),
-            'coatPet_id' => $request->input('coatPet'),
-            'profilePet_id' => $request->input('profilePet'),
-            'provenancePet_id' => $request->input('provenancePet'),
+                'nameTutor' => $request->input('nameTutor'),
+                'emailTutor' => $request->input('emailTutor'),
+                'cpfTutor' => $request->input('cpfTutor'),
+                'dateBirthTutor' => $request->input('dateBirthTutor'),
+                'ageTutor' => $ageTutor,
+                'numberPhoneTutor' => $request->input('numberPhoneTutor'),
+    
+    
+                'namePet' => $request->input('namePet'),
+                'speciePet_id' => $request->input('speciePet'),
+                'breedPet_id' => $request->input('breedPet'),
+                'genderPet' => $request->input('genderPet'),
+                'dateBirthPet' => $request->input('dateBirthPet'),
+                'agePet' => $agePet,
+    
+                'colorPet_id' => $request->input('colorPet'),
+                'sizePet_id' => $request->input('sizePet'),
+                'coatPet_id' => $request->input('coatPet'),
+                'profilePet_id' => $request->input('profilePet'),
+                'provenancePet_id' => $request->input('provenancePet'),
+                
+            ];
             
-        ];
-        
-        $rgaRequest = RGA::create($dataRGA);
+            $rgaRequest = RGA::create($dataRGA);
+    
+            $dataProcess = [
+                'rga_id'=> $rgaRequest->id,
+                'requestDate' => Carbon::now(),
+                'status'=> 0,
+                'analysisDate'=> null,
+                'reasonReject'=> null,
+            ];
+            
+            $process =  ProcessRGA::create($dataProcess);
+    
+            $rgaRequest->update(['process_id' => $process->id]);           
+            $rgaRequest->save();
 
-        $dataProcess = [
-            'rga_id'=> $rgaRequest->id,
-            'requestDate' => Carbon::now(),
-            'status'=> 0,
-            'analysisDate'=> null,
-            'reasonReject'=> null,
-        ];
-        
-        $process =  ProcessRGA::create($dataProcess);
-
-        $rgaRequest->update(['process_id' => $process->id]);
-        
-        $rgaRequest->save();
-       
-
-        
-
-
-        return redirect()->route('home');
-
+            
+            return redirect()->route('rga.index')->with('success',"Solicitação de RGA cadastrada com sucesso!");
+            
+        } catch (\Exception $e) {
+            return redirect()->route('rga.index')->with('error', $e->getMessage());
+            
+        }
 
 
     }
@@ -174,13 +175,16 @@ class RGAController extends Controller
 
     public function processRGA($id)
     {
-        //dd(RGA::find($id));
         $rga = RGA::find($id);
+        //sdd($rga->breed->breed);
         return view('pages.rga.processAnalysis',compact('rga'));
     }
 
     public function listClose(){
-        dd('entoru na lista close');
+        
+        $rgas = RGA::all();
+        $process = ProcessRGA::where('status',1)->get();
+        return view('pages.rga.request.close.index',compact('rgas','process'));
     }
 
     public function acceptedRGA($id)
@@ -202,6 +206,23 @@ class RGAController extends Controller
                 
                 return redirect()->route('rga.index')->with('warning',"O RGA já existe");
             }  
+        } catch (\Exception $e) {
+            return redirect()->route('rga.index')->with('error', $e->getMessage());
+            
+        }
+
+    }
+
+    public function rejectedRGA(Request $request, $id)
+    {       
+        $process = processRGA::where('rga_id',$id)->first(); 
+        $motive =  $request->reasonReject;         
+        try { 
+                 
+            $process->update(['status' => 1,'analysisDate' => Carbon::now(),'reasonReject'=>$motive]);
+       
+            return redirect()->route('rga.index')->with('warning','Processo de RGA rejeitado com sucesso!');    
+   
         } catch (\Exception $e) {
             return redirect()->route('rga.index')->with('error', $e->getMessage());
             
