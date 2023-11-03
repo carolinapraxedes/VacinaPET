@@ -67,12 +67,11 @@ O sistema tem como objetivo facilitar e centralizar as informações sobre a vac
 |F09|Cadastramento de vacinação|Veterinário ou agente de saúde preenche um formulário para registrar uma vacinação|
 |F10|Comprovante de vacinação|Documento de comprovação da vacina aplicada|
 |F11|Listagem de vacinação realizadas|Lista de todas as vacinas aplicadas no animal|
-|F12|Listagem de solicitações de RGA pendentes|
-|F13|Listagem de solicitações de RGA concluídas|
+|F12|Listagem de solicitações de RGA pendentes|Listagem de todas solicitações que estão com o status de pendentes|
+|F13|Listagem de solicitações de RGA concluídas|Listagem de todas solicitações que estão com o status de concluídos|
 |F14|Listagem de dados gerais sobre a vacinação|Listagem de todos os dados gerais sobre a realização de vacinação no estado|
 |F15|Lembrete de vacina marcada|Quando a vacinação marca estiver próxima de acontecer, o tutor irá receber um e-mail de lembrete|
-|F16|Cadastro de campanha de vacinação|Funcionário do governo preenche formulário para criação de uma nova campanha de vacinação|
-|F17|Notificação de campanha de vacinação|Todos os tutores de pet cadastrados no sistema irá receber um e-mail informativo sobre a nova campanha de vacinação|
+
 
 
 
@@ -101,13 +100,13 @@ O sistema tem como objetivo facilitar e centralizar as informações sobre a vac
 |CP09|Visualizar vacinações agendadas||**X**||Não feito|
 |CP10|Consultar solicitações de RGA pendentes||**X**||Feito|
 |CP11|Consultar RGA|||**X**|Não feito|
-|CP10|Consultar solicitações de RGA concluídas|||**X**|Feito|
-|CP11|Visualizar informações sobre o PET|||**X**|Não feito|
-|CP12|Registrar vacina|||**X**|Não feito|
-|CP13|Registrar Veterinário|||**X**|Não feito|
-|CP14|Registrar estabelicimento de saúde|||**X**|Não feito|
-|CP15|Registrar fabricante de vacina|||**X**|Não feito|
-|CP16|Consultar dados gerais sobre a vacinação do estado|||**X**|Não feito|
+|CP12|Consultar solicitações de RGA concluídas|||**X**|Feito|
+|CP13|Visualizar informações sobre o PET|||**X**|Não feito|
+|CP14|Registrar vacina|||**X**|Não feito|
+|CP15|Registrar Veterinário|||**X**|Não feito|
+|CP16|Registrar estabelecimento de saúde|||**X**|Não feito|
+|CP17|Registrar fabricante de vacina|||**X**|Não feito|
+|CP18|Consultar dados gerais sobre a vacinação do estado|||**X**|Não feito|
 
 
 11. **Glossário** 
