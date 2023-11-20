@@ -32,11 +32,7 @@ class RegisterPetRequest extends FormRequest
             'colorPet' => 'nullable|string|max:70',
             
             'dateBirthPet' => 'required|date',
-            'descriptionPet' => 'nullable|string|max:255',
-            'nameTutor' => 'required|string|max:255',
-            'cpfTutor' => 'required|string|min:14|max:14',
-            'emailTutor' => 'required|email|max:100',
-            'numberPhoneTutor' => 'required|string|max:15',
+ 
         ];
     }
 
@@ -58,22 +54,9 @@ class RegisterPetRequest extends FormRequest
             'colorPet.max' => 'O campo Cor deve ter no máximo :max caracteres.',
 
             'dateBirthPet.required' => 'Por favor, informe a idade do animal',
-            'descriptionPet'=> 'A descrição deve ter no máximo :max caracteres.',
-
-            'nameTutor.required'=>'Por favor, informe o nome do Tutor',
-            'nameTutor.max'=>'O nome do Tutor deve ter no máximo :max caracteres.',
-
-            'cpfTutor.required'=>'Por favor, preencha o CPF',
-            'cpfTutor.min'=>'O CPF precisa ter no mínimo :min caracteres.',
-            'cpfTutor.max'=>'O CPF precisa ter no máximo :max caracteres.',
-            'cpfTutor.formato_cpf'=>'O CPF deve ser um CPF válido.',
-
-            'emailTutor.required'=>'Por favor, informe o e-mail do Tutor',
-            'emailTutor.max'=>'O e-mail do Tutor deve ter no máximo :max caracteres.',
-            'emailTutor.email'=>'O e-mail do Tutor deve ser um endereço válido.',
             
-            'numberPhoneTutor.required' => 'Por favor, informe o número de telefone do Tutor.',
-            'numberPhoneTutor.max' => 'O número de telefone do Tutor deve ter no máximo :max caracteres.',
+
+        
 
         ];
     }

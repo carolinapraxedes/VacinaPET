@@ -229,5 +229,13 @@ class RGAController extends Controller
         }
 
     }
+
+    public function search(){
+        return view('pages.rga.search');
+    }
+
+    public function searching(Request $request){
+       dd($request->all());
+    }
     
 }

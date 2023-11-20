@@ -38,6 +38,16 @@ return new class extends Migration
             $table->unsignedBigInteger('profilePet_id');
             $table->unsignedBigInteger('provenancePet_id');
             $table->unsignedBigInteger('pet_id')->nullable();
+
+            $table->foreign('speciePet_id')->references('id')->on('specie');
+            $table->foreign('breedPet_id')->references('id')->on('breed');            
+            $table->foreign('colorPet_id')->references('id')->on('color_pet');
+            $table->foreign('sizePet_id')->references('id')->on('size_pet');
+            $table->foreign('coatPet_id')->references('id')->on('coat_pet');            
+            $table->foreign('profilePet_id')->references('id')->on('profile_pet');
+            $table->foreign('provenancePet_id')->references('id')->on('provenance_pet');
+            $table->foreign('pet_id')->references('id')->on('pet');            
+ 
             
             
 
@@ -53,6 +63,17 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::table('rga', function (Blueprint $table) {
+            $table->dropForeign(['speciePet_id']);
+            $table->dropForeign(['breedPet_id']);
+            $table->dropForeign(['colorPet_id']);
+            $table->dropForeign(['sizePet_id']);
+            $table->dropForeign(['coatPet_id']);
+            $table->dropForeign(['profilePet_id']);
+            $table->dropForeign(['provenancePet_id']);
+            $table->dropForeign(['pet_id']);
+        });
+    
         Schema::dropIfExists('rga');
     }
 };

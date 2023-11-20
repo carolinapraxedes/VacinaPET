@@ -8,7 +8,9 @@ use App\Models\Tutor;
 use App\Models\Pet;
 use App\Models\Specie;
 use App\Http\Requests\RegisterPetRequest;
+use App\Models\ColorPet;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class PetController extends Controller
@@ -34,7 +36,8 @@ class PetController extends Controller
         
         $breeds= Breed::all();
         $species= Specie::all();
-        return view('pages.pet.create',compact('breeds','species'));
+        $colors = ColorPet::all();
+        return view('pages.pet.create',compact('breeds','species','colors'));
     
     }
 
@@ -46,6 +49,7 @@ class PetController extends Controller
      */
     public function store(RegisterPetRequest $request)
     {
+      
         //Idade do pet em meses
         $dateOfBirth = Carbon::parse($request->input('dateBirthPet'));
 
@@ -61,20 +65,15 @@ class PetController extends Controller
             'color' => $request->input('colorPet'),
             'age' => $age,
             'dateBirth' => $request->input('dateBirthPet'),
-            'description' => $request->input('descriptionPet'),
+            
         ];
               
-        $tutorData = [
-            'name' => $request->input('nameTutor'),
-            'CPF' => $request->input('cpfTutor'),
-            'email' => $request->input('emailTutor'),
-            'numberPhone' => $request->input('numberPhoneTutor'),
-        ];
+
 
         $pet = Pet::create($petData);
 
         // Cria o tutor
-        $tutor = Tutor::create($tutorData);
+        $tutor = Auth::user()->id;
 
         // Associe o pet ao tutor
         $pet->tutor()->associate($tutor);

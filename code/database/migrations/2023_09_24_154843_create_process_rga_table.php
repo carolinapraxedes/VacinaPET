@@ -20,6 +20,9 @@ return new class extends Migration
             $table->unsignedBigInteger('status')->default(0);
             $table->date('analysisDate')->nullable();
             $table->string('reasonReject')->nullable();
+
+            $table->foreign('rga_id')->references('id')->on('rga');
+
             $table->timestamps();
         });
     }
@@ -31,6 +34,10 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::table('rga', function (Blueprint $table) {
+            $table->dropForeign(['rga_id']);
+
+        });
         Schema::dropIfExists('process_rga');
     }
 };

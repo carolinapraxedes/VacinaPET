@@ -26,187 +26,143 @@
                     <i class="fas fa-paw" style="color: #f4645f;"></i>
                 </div>
                 <h6 class="ms-2 text-uppercase text-xs font-weight-bolder opacity-6 mb-0">PET</h6>
+
+                <li class="nav-item">
+                    <a class="nav-link {{ Route::currentRouteName() == 'pets.index' ? 'active' : '' }}" href="{{ route('pets.index') }}">
+                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="far fa-list-alt text-dark text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Meus animais</span>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link {{ Route::currentRouteName() == 'pets.create' ? 'active' : '' }}" href="{{ route('pets.create') }}">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="far fa-plus-square text-dark text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Novo animal</span>
+                    </a>
+                </li>
+
             </li>
-            <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'pets.index' ? 'active' : '' }}" href="{{ route('pets.index') }}">
-                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="far fa-list-alt text-dark text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Meus animais</span>
-                </a>
-            </li>
-            <li class="nav-item ">
-                <a class="nav-link {{ Route::currentRouteName() == 'pets.create' ? 'active' : '' }}" href="{{ route('pets.create') }}">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="far fa-plus-square text-dark text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Cadastrar</span>
-                </a>
-            </li>
-           <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'rga.index' ? 'active' : '' }}" href="{{ route('rga.index') }}">
-                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="far fa-id-card text-dark text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">RGA</span>
-                </a>
-            </li>
+
             <li class="nav-item mt-3 d-flex align-items-center">
-                <div class="ps-4">
-                    <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                <div class="ps-4">                   
+                    <i class="fas fa-paw" style="color: #f4645f;"></i>
                 </div>
-                <h6 class="ms-2 text-uppercase text-xs font-weight-bolder opacity-6 mb-0">Vacinações</h6>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'vaccination.create' ? 'active' : '' }}" href="{{ route('vaccination.create') }}">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="fas fa-syringe text-dark text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Registrar vacinação</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'vaccine.create' ? 'active' : '' }}" href="{{ route('vaccine.create') }}">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="fas fa-syringe text-dark text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Registrar vacina</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'manufacturer.create' ? 'active' : '' }}" href="{{ route('manufacturer.create') }}">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="fas fa-syringe text-dark text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Registrar Fabricante</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'veterinarian.create' ? 'active' : '' }}" href="{{ route('veterinarian.create') }}">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="fas fa-syringe text-dark text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Registrar Veterinario</span>
-                </a>
+                <h6 class="ms-2 text-uppercase text-xs font-weight-bolder opacity-6 mb-0">RGA</h6>
+
+                <li class="nav-item">
+                    <a class="nav-link {{ Route::currentRouteName() == 'rga.index' ? 'active' : '' }}" href="{{ route('rga.index') }}">
+                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="far fa-id-card text-dark text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Processos</span>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link {{ Route::currentRouteName() == 'rga.search' ? 'active' : '' }}" href="{{ route('rga.search') }}">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="far fa-plus-square text-dark text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Procurar RGA</span>
+                    </a>
+                </li>
             </li>
             <li class="nav-item mt-3 d-flex align-items-center">
-                <div class="ps-4">
-                    <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                <div class="ps-4">                   
+                    <i class="fas fa-paw" style="color: #f4645f;"></i>
+                </div>
+                <h6 class="ms-2 text-uppercase text-xs font-weight-bolder opacity-6 mb-0">Vacinação</h6>
+
+                <li class="nav-item">
+                    <a class="nav-link {{ Route::currentRouteName() == 'vaccination.create' ? 'active' : '' }}" href="{{ route('vaccination.create') }}">
+                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="far fa-id-card text-dark text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Registrar</span>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link {{ Route::currentRouteName() == 'pets.create' ? 'active' : '' }}" href="">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="far fa-plus-square text-dark text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Realizadas</span>
+                    </a>
+                </li>
+            </li>
+            <li class="nav-item mt-3 d-flex align-items-center">
+                <div class="ps-4">                   
+                    <i class="fas fa-paw" style="color: #f4645f;"></i>
                 </div>
                 <h6 class="ms-2 text-uppercase text-xs font-weight-bolder opacity-6 mb-0">Agendamentos</h6>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'appointment.create' ? 'active' : '' }}" href="{{ route('appointment.index') }}">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Agendar uma vacinação</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('profile') }}">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Histórico de Agendamentos</span>
-                </a>
-            </li>
 
- 
-            
+                <li class="nav-item">
+                    <a class="nav-link {{ Route::currentRouteName() == 'appointment.create' ? 'active' : '' }}" href="{{ route('appointment.index') }}">
+                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="far fa-id-card text-dark text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Agendar</span>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link {{ Route::currentRouteName() == 'pets.create' ? 'active' : '' }}" href="">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="far fa-plus-square text-dark text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Histórico de Agendamentos</span>
+                    </a>
+                </li>
+            </li>
+            <li class="nav-item mt-3 d-flex align-items-center">
+                <div class="ps-4">                   
+                    <i class="fas fa-paw" style="color: #f4645f;"></i>
+                </div>
+                <h6 class="ms-2 text-uppercase text-xs font-weight-bolder opacity-6 mb-0">Administração</h6>
 
-            {{-- <li class="nav-item mt-3">
-                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Pages</h6>
+                <li class="nav-item">
+                    <a class="nav-link {{ Route::currentRouteName() == 'rga.index' ? 'active' : '' }}" href="">
+                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="far fa-id-card text-dark text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Registrar Veterinário</span>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link {{ Route::currentRouteName() == 'pets.create' ? 'active' : '' }}" href="">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="far fa-plus-square text-dark text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Registrar local</span>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link {{ Route::currentRouteName() == 'pets.create' ? 'active' : '' }}" href="">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="far fa-plus-square text-dark text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Procurar RGA</span>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link {{ Route::currentRouteName() == 'pets.create' ? 'active' : '' }}" href="">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="far fa-plus-square text-dark text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Procurar RGA</span>
+                    </a>
+                </li>
             </li>
-            <li class="nav-item">
-                <a class="nav-link {{ str_contains(request()->url(), 'tables') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'tables']) }}">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Tables</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{  str_contains(request()->url(), 'billing') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'billing']) }}">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Billing</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'virtual-reality' ? 'active' : '' }}" href="{{ route('virtual-reality') }}">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-app text-info text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Virtual Reality</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'rtl' ? 'active' : '' }}" href="{{ route('rtl') }}">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-world-2 text-danger text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">RTL</span>
-                </a>
-            </li>
-            <li class="nav-item mt-3">
-                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'profile-static' ? 'active' : '' }}" href="{{ route('profile-static') }}">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Profile</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " href="{{ route('sign-in-static') }}">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-single-copy-04 text-warning text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Sign In</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " href="{{ route('sign-up-static') }}">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-collection text-info text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Sign Up</span>
-                </a>
-            </li> --}}
+          
         </ul>
     </div> 
-    {{-- <div class="sidenav-footer mx-3 ">
-        <div class="card card-plain shadow-none" id="sidenavCard">
-            <img class="w-50 mx-auto" src="{{ asset('assets/img/illustrations/icon-documentation-warning.svg') }}"
-                alt="sidebar_illustration">
-            <div class="card-body text-center p-3 w-100 pt-0">
-                <div class="docs-info">
-                    <h6 class="mb-0">Need help?</h6>
-                    <p class="text-xs font-weight-bold mb-0">Please check our docs</p>
-                </div>
-            </div>
-        </div>
-        <a href="/docs/bootstrap/overview/argon-dashboard/index.html" target="_blank"
-            class="btn btn-dark btn-sm w-100 mb-3">Documentation</a>
-        <a class="btn btn-primary btn-sm mb-0 w-100"
-            href="https://www.creative-tim.com/product/argon-dashboard-pro-laravel" target="_blank" type="button">Upgrade to PRO</a>
-    </div>  --}}
+    
 </aside>

@@ -78,7 +78,7 @@
                                                     <option selected disabled>Selecione uma espécie</option>
                                                     @foreach ($species as $specie)
                                                         <option value="{{ $specie->id }}" {{ old('speciePet') == $specie->id ? 'selected' : '' }}>
-                                                            {{ $specie->specie === 'dog' ? 'Canino' : 'Felino'}}
+                                                            {{ $specie->specie === 'Canino' ? 'Canino' : 'Felino'}}
                                                         </option>
                                                     @endforeach
                                                 </select>
@@ -234,7 +234,7 @@
 
                 console.log(age);
                 if (age < 18) {
-                    console.log('É menor');
+                    
                 // Se a idade for menor que 18, altere a mensagem de erro
                 $("#resultadoIdade").text("Você tem menos de 18 anos.");
             } else {

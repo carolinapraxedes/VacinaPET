@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RegisterVaccination;
 use App\Models\Manufacturer;
 use App\Models\Pet;
+use App\Models\RGA;
 use App\Models\Specie;
 use App\Models\Vaccination;
 use App\Models\VaccinationLocation;
@@ -12,6 +13,7 @@ use App\Models\Vaccine;
 use App\Models\Veterinarian;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\TryCatch;
 
 class VaccinationController extends Controller
 {
@@ -31,11 +33,22 @@ class VaccinationController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function searchRGA(){
-        
+    public function searchRGA()
+    {
     }
 
-    public function getCRMV($id){
+
+    public function getRGA($rga)
+    {
+        $rgaPet = RGA::where('rga', $rga)->first();
+        if ($rgaPet) {
+            return response()->json(['rga' => $rgaPet]);
+        }
+        return response()->json(['error' => 'rga not found with rga number' . $rga], 404);
+    }
+
+    public function getCRMV($id)
+    {
         $veterinarian = Veterinarian::find($id);
         if ($veterinarian) {
             return response()->json(['CRMV_RN' => $veterinarian->CRMV_RN]);
@@ -43,57 +56,49 @@ class VaccinationController extends Controller
         return response()->json(['error' => 'Veterinarian not found'], 404);
     }
 
-    
     public function create()
     {
-        $species=Specie::all();
-        $vaccines = Vaccine::all();
+        try {
+            $species = Specie::all();
+            $vaccines = Vaccine::all();
+            $manufacturers = Manufacturer::all();
+            $veterinarians = Veterinarian::all();
+            $locals = VaccinationLocation::all();
 
-        $manufacturers = Manufacturer::all();
-        $veterinarians = Veterinarian::all();
-        $locals = VaccinationLocation::all();
-        
-
-        
-        $rga = 66666666;
-        $pet = Pet::where('RGA',$rga)->first();
-        
-        
-
-        return view('pages.vaccination.create',compact('species','pet','vaccines', 'manufacturers', 'veterinarians','locals'));
+            return view('pages.vaccination.create', compact('species', 'vaccines', 'manufacturers', 'veterinarians', 'locals'));
+        } catch (\Exception $e) {
+            return redirect()->route('vaccination.index')->with('error', $e->getMessage());
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(RegisterVaccination $request)
     {
-       
         $pet = Pet::where('RGA', $request->input('rgaPet'))->first();
-        
-        $vaccinationData =[
-            'pet_id'=> $pet->id,
-            'administrationDate' => $request->input('dateVaccination'),
-            'lote' => $request->input('lote'),
-            'dose'=> $request->input('dose'),
+        //dd($request->input('rgaPet'));
+        try {
+            if (empty($pet)) {
+                return redirect()->route('vaccination.index')->with('error', 'Nenhum animal de estimação foi encontrado com esse RGA!');
+            } else {
 
-            'rga' =>  $request->input('rgaPet'),
-            'vaccine_id' => $request->input('vaccine_id'),
-            'manufacturer_id' => $request->input('manufacturer_id'),
-            'vaccination_location_id'=> $request->input('localVaccination'),
-            'veterinarian_id' => $request->input('veterinarian_id')
+                $vaccinationData = [
+                    'pet_id' => $pet->id,
+                    'administrationDate' => $request->input('dateVaccination'),
+                    'lote' => $request->input('lote'),
+                    'dose' => $request->input('dose'),
 
-        ];
-        
-        Vaccination::create($vaccinationData);
-
-        return redirect()->route('vaccination.index');
-        
-
-
+                    'rga' =>  $request->input('rgaPet'),
+                    'vaccine_id' => $request->input('vaccine_id'),
+                    'manufacturer_id' => $request->input('manufacturer_id'),
+                    'vaccination_location_id' => $request->input('localVaccination'),
+                    'veterinarian_id' => $request->input('veterinarian_id')
+                ];
+                Vaccination::create($vaccinationData);
+                return redirect()->route('vaccination.index')->with('sucess', "Vacinação registrada!");
+            }
+        } catch (\Exception $e) {
+            return redirect()->route('vaccination.index')->with('error', $e->getMessage());
+        }
     }
 
     /**

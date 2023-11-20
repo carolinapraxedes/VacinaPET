@@ -19,9 +19,7 @@ return new class extends Migration
             $table->string('gender');
             $table->unsignedBigInteger('age');
             $table->date('dateBirth');
-            $table->string('color');        
-            $table->string('RGA');
-            $table->text('description')->nullable();       
+
 
 
             $table->softDeletes();

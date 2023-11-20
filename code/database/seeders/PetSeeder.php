@@ -19,11 +19,9 @@ class PetSeeder extends Seeder
         Pet::create([
             'id' => 1,
             'name' => 'Lua',
-            'gender'=> 'M',
+            'gender'=> 'F',
             'age'=> 0,
             'dateBirth'=> Carbon::now(),
-            'color'=>'Preto',
-            'RGA'=> '66666666',
          
             'created_at' => Carbon::now(),
             'breed_id' => 1,

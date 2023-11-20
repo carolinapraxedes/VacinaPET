@@ -68,7 +68,9 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 		Route::get('/vaccination/search', [VaccinationController::class, 'searchRGA'])->name('vaccination.searchRGA');		
 		Route::get('/vaccination/create', [VaccinationController::class, 'create'])->name('vaccination.create');		
 		Route::post('/vaccination/store', [VaccinationController::class, 'store'])->name('vaccination.store');	
-		Route::get('/get-veterinarian-crmv/{id}',[VaccinationController::class,'getCRMV'])->name('getCRMV');
+		Route::get('/get-veterinarian-crmv/{crmv}',[VaccinationController::class,'getCRMV'])->name('getCRMV');
+		Route::get('/get-rga/{rga}',[VaccinationController::class,'getRGA'])->name('getRGA');
+		
 		
 		Route::get('/vaccination/{vaccination}', [VaccinationController::class, 'show'])->name('vaccination.show');		
 		Route::get('/vaccination/{vaccination}/edit', [VaccinationController::class, 'edit'])->name('vaccination.edit');		
@@ -99,9 +101,11 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 		Route::get('/rga/{rga}/edit', [RGAController::class, 'edit'])->name('rga.edit');		
 		Route::put('/rga/{rga}', [RGAController::class, 'update'])->name('rga.update');		
 		Route::delete('/rga/{rga}', [RGAController::class, 'destroy'])->name('rga.destroy');
+		Route::get('/rga/search', [RGAController::class, 'search'])->name('rga.search');
+		Route::post('/rga/search/', [RGAController::class, 'searching'])->name('rga.searching');
 
-		Route::get('/process/{process}', [RGAController::class, 'processRGA'])->name('rga.processRGA');
-		Route::post('/process/{process}', [RGAController::class, 'show'])->name('rga.show');
+		Route::get('/rga/process/{process}', [RGAController::class, 'processRGA'])->name('rga.processRGA');
+		Route::post('/rga/process/{process}', [RGAController::class, 'show'])->name('rga.show');
 		Route::get('/rga/list/requestOpen', [RGAController::class, 'listOpen'])->name('rga.listOpen');
 		Route::get('/rga/list/requestClose', [RGAController::class, 'listClose'])->name('rga.listClose');
 
