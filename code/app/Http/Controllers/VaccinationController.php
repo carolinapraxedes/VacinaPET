@@ -47,9 +47,9 @@ class VaccinationController extends Controller
         return response()->json(['error' => 'rga not found with rga number' . $rga], 404);
     }
 
-    public function getCRMV($id)
+    public function getCRMV($crmv)
     {
-        $veterinarian = Veterinarian::find($id);
+        $veterinarian = Veterinarian::find($crmv);
         if ($veterinarian) {
             return response()->json(['CRMV_RN' => $veterinarian->CRMV_RN]);
         }
@@ -74,26 +74,28 @@ class VaccinationController extends Controller
 
     public function store(RegisterVaccination $request)
     {
-        $pet = Pet::where('RGA', $request->input('rgaPet'))->first();
-        //dd($request->input('rgaPet'));
+        $pet = Pet::where('rga', $request->input('rgaPet'))->first();
+        
         try {
             if (empty($pet)) {
                 return redirect()->route('vaccination.index')->with('error', 'Nenhum animal de estimação foi encontrado com esse RGA!');
             } else {
-
+                
                 $vaccinationData = [
                     'pet_id' => $pet->id,
                     'administrationDate' => $request->input('dateVaccination'),
                     'lote' => $request->input('lote'),
                     'dose' => $request->input('dose'),
 
-                    'rga' =>  $request->input('rgaPet'),
+                    'rga' =>  $request->input('rga'),
                     'vaccine_id' => $request->input('vaccine_id'),
                     'manufacturer_id' => $request->input('manufacturer_id'),
                     'vaccination_location_id' => $request->input('localVaccination'),
                     'veterinarian_id' => $request->input('veterinarian_id')
                 ];
+                
                 Vaccination::create($vaccinationData);
+                
                 return redirect()->route('vaccination.index')->with('sucess', "Vacinação registrada!");
             }
         } catch (\Exception $e) {

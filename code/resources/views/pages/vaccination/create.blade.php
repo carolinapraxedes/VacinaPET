@@ -21,9 +21,9 @@
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">Registro Geral Animal
                                                 (RGA)</label>
-                                            <input class="form-control" type="text" id="rgaPet" name="rgaPet"
-                                                value="{{ old('rgaPet') }}" placeholder="Digite o RGA do animal">
-                                            @error('rgaPet')
+                                            <input class="form-control" type="text" id="rga" name="rga"
+                                                value="{{ old('rga') }}" placeholder="Digite o RGA do animal">
+                                            @error('rga')
                                                 <p class="text-danger text-xs pt-1"> {{ $message }} </p>
                                             @enderror
                                         </div>
@@ -32,7 +32,7 @@
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">Nome</label>
                                             <input class="form-control" type="text" id="namePet" name="namePet"
-                                                value="{{ old('namePet') }}">
+                                                value="{{ old('namePet') }}" placeholder="Digite o nome do animal">
 
                                             @error('namePet')
                                                 <p class="text-danger text-xs pt-1"> {{ $message }} </p>
@@ -44,7 +44,14 @@
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">Espécie</label>
                                             <input class="form-control" type="text" id="speciePet" name="speciePet"
-                                                value="{{ old('speciePet') }}">
+                                                value="{{ old('speciePet') }}" placeholder="Selecione uma espécie">
+                                            {{-- <select class="form-control" name="speciePet" id="speciePet" >
+                                                <option selected disabled>Selecione uma espécie</option>
+                                                
+                                                @foreach ($species as $specie)
+                                                    <option value="{{ $specie->id }}">{{ $specie->specie === 'Canino' ? 'Canino' : 'Felino'}}</option>
+                                                @endforeach
+                                            </select> --}}
 
                                             @error('speciePet')
                                                 <p class="text-danger text-xs pt-1"> {{ $message }} </p>
@@ -57,7 +64,12 @@
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">Sexo</label>
                                             <input class="form-control" type="text" id="genderPet" name="genderPet"
-                                                value="{{ old('namePet') }}">
+                                                value="{{ old('genderPet') }}" placeholder="Selecione um sexo">
+                                            {{-- <select class="form-control" name="genderPet" id="genderPet" >
+                                                <option value=""  disabled selected>Selecione um sexo</option>
+                                                <option value="M"  {{ old('genderPet') == 'M' ? 'selected' : '' }}>Macho</option>
+                                                <option value="F"  {{ old('genderPet') == 'F' ? 'selected' : '' }}>Fêmea</option>
+                                            </select> --}}
                                             @error('genderPet')
                                                 <p class="text-danger text-xs pt-1"> {{ $message }} </p>
                                             @enderror
@@ -71,8 +83,8 @@
                                             <label for="example-text-input" class="form-control-label">Data de
                                                 Nascimento</label>
                                             <input class="form-control" type="text" name="dateBirthPet" id="dateBirthPet"
-                                                value="{{ old('dateBirthPet') }}">
-                                            {{-- {{ $pet->dateBirth->format('d/m/Y') }} --}}
+                                                value="{{ old('dateBirthPet') }}" placeholder="DD/MM/YYYY">
+                                            
                                             @error('dateBirthPet')
                                                 <p class="text-danger text-xs pt-1"> {{ $message }} </p>
                                             @enderror
@@ -82,7 +94,7 @@
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">Nome do Tutor</label>
                                             <input class="form-control" type="text" id="nameTutor" name="nameTutor"
-                                                value="{{ old('nameTutor') }}">
+                                                value="{{ old('nameTutor') }}" placeholder="Digite o nome do tutor do animal">
                                             {{-- {{ $pet->tutor->name }} --}}
                                             @error('nameTutor')
                                                 <p class="text-danger text-xs pt-1"> {{ $message }} </p>
@@ -94,7 +106,7 @@
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">CPF do Tutor</label>
                                             <input class="form-control" type="text" id="cpfTutor" name="cpfTutor"
-                                                value="{{ old('cpfTutor') }}">
+                                                value="{{ old('cpfTutor') }}" placeholder="000.000.000-00">
                                             @error('cpfTutor')
                                                 <p class="text-danger text-xs pt-1"> {{ $message }} </p>
                                             @enderror
@@ -124,7 +136,7 @@
                                             <label for="example-text-input" class="form-control-label">Data da
                                                 vacinaçao</label>
                                             <input class="form-control datepicker" type="date" datetime="DD-MM-YYYY"
-                                                name="dateVaccination" id="dateVaccination">
+                                                name="dateVaccination" id="dateVaccination" >
                                             @error('dateVaccination')
                                                 <p class="text-danger text-xs pt-1"> {{ $message }} </p>
                                             @enderror
@@ -152,7 +164,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">Lote</label>
                                             <input class="form-control" type="text" name="lote"
@@ -219,7 +231,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">CRMV</label>
                                             <input class="form-control" type="text" id="vaccinatorCRMV"
@@ -258,7 +270,7 @@
 
 
         $(document).ready(function() {
-            $('#rgaPet').change(function() {
+            $('#rga').change(function() {
                 var rga = $(this).val();
 
                 // Fazer a chamada AJAX para obter o CRMV

@@ -15,15 +15,15 @@ class Pet extends Model
     protected $fillable = [
         'name',
         'gender',
-        'RGA',
         'age',
-        'color',
         'description',
         'dateBirth',
+        'rga',
         'specie_id',
         'breed_id',
         'vaccination_id',
         'appointment_id',
+        'color_id',
         'tutor_id'
     ];
 
@@ -45,6 +45,9 @@ class Pet extends Model
     }
     public function tutor(){
         return $this->belongsTo(Tutor::class,'tutor_id');
+    }
+    public function color(){
+        return $this->belongsTo(ColorPet::class,'color_id');
     }
     public function rga()
     {

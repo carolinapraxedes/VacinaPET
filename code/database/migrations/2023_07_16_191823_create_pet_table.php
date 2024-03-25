@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('pet', function (Blueprint $table) {
             $table->id();
+            $table->string('rga')->nullable();
             $table->string('name',140);
             $table->string('gender');
             $table->unsignedBigInteger('age');

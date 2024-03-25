@@ -24,6 +24,7 @@ class RegisterVaccination extends FormRequest
     public function rules()
     {
         return [
+            'rga' => 'required',
             'vaccine_id' => 'required',
             'dateVaccination' => 'required',
             'dose' => 'required',
@@ -39,6 +40,7 @@ class RegisterVaccination extends FormRequest
     public function messages()
     {
         return [
+            'rga.required' => 'Por favor, informe o RGA.',
             'vaccine_id.required' => 'Por favor, escolha uma vacina.',
             'dateVaccination.required' => 'Por favor, selecione a data da aplicaçao da vacina.',
             'dose.required' => 'Por favor, selecione a dosagem da vacinação.',

@@ -7,8 +7,7 @@
             <div class="card">
                 <div class="card-header pb-0 p-3">
                     <h6 class="mb-0">Busca de animal de estimação por RGA</h6>
-                    <P>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam commodo tellus lorem, nec scelerisque
-                        nunc porta ut. Etiam facilisis turpis eget scelerisque venenatis.</P>
+                    <P>Informe o Registro Geral do Animal(RGA) para obter mais informações.</P>
                 </div>
                 <div class="card-body p-3">
                     <form role="form" method="POST" action={{ route('rga.searching') }} enctype="multipart/form-data">

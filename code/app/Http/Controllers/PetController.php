@@ -61,8 +61,8 @@ class PetController extends Controller
             'specie_id' => $request->input('speciePet'),
             'breed_id' => $request->input('breedPet'),
             'gender' => $request->input('genderPet'),
-            'RGA' => $request->input('rgaPet'),
-            'color' => $request->input('colorPet'),
+            'rga' => $request->input('rgaPet'),
+            'color_id' => $request->input('colorPet'),
             'age' => $age,
             'dateBirth' => $request->input('dateBirthPet'),
             
